@@ -1,0 +1,18 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY mux_4x1_16b IS
+	PORT(
+		E0, E1, E2, E3	:	IN		STD_LOGIC_VECTOR(15 DOWNTO 0);
+		selecao			:	IN		STD_LOGIC_VECTOR(1 DOWNTO 0);
+		saida				:	OUT 	STD_LOGIC_VECTOR(15 DOWNTO 0));
+END mux_4x1_16b;
+
+ARCHITECTURE hardware OF mux_4x1_16b IS
+	BEGIN
+		WITH selecao SELECT
+			saida <= E0 WHEN "00", 
+						E1 WHEN "01",
+						E2 WHEN "10",
+						E3 WHEN "11";
+END hardware;
