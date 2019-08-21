@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rv32i
-Wed Aug 21 10:31:45 2019
+Wed Aug 21 17:46:41 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -14,13 +14,14 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. General Register Statistics
- 10. Source assignments for progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated
- 11. Parameter Settings for User Entity Instance: progam_memory:memoria_de_programa|altsyncram:altsyncram_component
- 12. altsyncram Parameter Settings by Entity Instance
- 13. Port Connectivity Checks: "progam_memory:memoria_de_programa"
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Source assignments for progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated
+ 12. Parameter Settings for User Entity Instance: progam_memory:program_memory1|altsyncram:altsyncram_component
+ 13. altsyncram Parameter Settings by Entity Instance
+ 14. Port Connectivity Checks: "progam_memory:program_memory1"
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -46,7 +47,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Aug 21 10:31:45 2019           ;
+; Analysis & Synthesis Status        ; Successful - Wed Aug 21 17:46:41 2019           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; rv32i                                           ;
 ; Top-level Entity Name              ; datapath                                        ;
@@ -55,7 +56,7 @@ applicable agreement for further details.
 ;     Total combinational functions  ; 0                                               ;
 ;     Dedicated logic registers      ; 0                                               ;
 ; Total registers                    ; 0                                               ;
-; Total pins                         ; 14                                              ;
+; Total pins                         ; 7                                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -164,6 +165,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+---------------------------------------+-------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                             ; File Name with Absolute Path                                            ; Library ;
 +----------------------------------+-----------------+---------------------------------------+-------------------------------------------------------------------------+---------+
+; pc.vhd                           ; yes             ; User VHDL File                        ; D:/Desktop/RISC-V-RV32I/quartus/pc.vhd                                  ;         ;
 ; alu.vhd                          ; yes             ; User VHDL File                        ; D:/Desktop/RISC-V-RV32I/quartus/alu.vhd                                 ;         ;
 ; datapath.vhd                     ; yes             ; User VHDL File                        ; D:/Desktop/RISC-V-RV32I/quartus/datapath.vhd                            ;         ;
 ; register_file.vhd                ; yes             ; User VHDL File                        ; D:/Desktop/RISC-V-RV32I/quartus/register_file.vhd                       ;         ;
@@ -202,7 +204,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- Dedicated logic registers            ; 0     ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 14    ;
+; I/O pins                                    ; 7     ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 +---------------------------------------------+-------+
 
@@ -212,18 +214,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |datapath                  ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |datapath           ; work         ;
+; |datapath                  ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 7    ; 0            ; |datapath           ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                                           ;
-+--------+--------------+---------+--------------+--------------+---------------------------------------------+---------------------------------------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                             ; IP Include File                                   ;
-+--------+--------------+---------+--------------+--------------+---------------------------------------------+---------------------------------------------------+
-; Altera ; ROM: 1-PORT  ; 13.0    ; N/A          ; N/A          ; |datapath|progam_memory:memoria_de_programa ; D:/Desktop/RISC-V-RV32I/quartus/progam_memory.vhd ;
-+--------+--------------+---------+--------------+--------------+---------------------------------------------+---------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                       ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------+---------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                         ; IP Include File                                   ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------+---------------------------------------------------+
+; Altera ; ROM: 1-PORT  ; 13.0    ; N/A          ; N/A          ; |datapath|progam_memory:program_memory1 ; D:/Desktop/RISC-V-RV32I/quartus/progam_memory.vhd ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------+---------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Registers Removed During Synthesis                          ;
++----------------------------------------+--------------------+
+; Register name                          ; Reason for Removal ;
++----------------------------------------+--------------------+
+; pc:pc1|temp[0..9]                      ; Lost fanout        ;
+; Total Number of Removed Registers = 10 ;                    ;
++----------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -241,98 +253,98 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                        ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                         ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Source assignments for progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                    ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: progam_memory:memoria_de_programa|altsyncram:altsyncram_component ;
-+------------------------------------+----------------------+----------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                               ;
-+------------------------------------+----------------------+----------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                            ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                         ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                       ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                       ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                     ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                            ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                                            ;
-; WIDTH_A                            ; 32                   ; Signed Integer                                     ;
-; WIDTHAD_A                          ; 10                   ; Signed Integer                                     ;
-; NUMWORDS_A                         ; 1024                 ; Signed Integer                                     ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                            ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                            ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                            ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                            ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                            ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                            ;
-; WIDTH_B                            ; 1                    ; Untyped                                            ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                            ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                            ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                            ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                            ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                            ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                            ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                            ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                            ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                            ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                            ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                            ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                            ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                            ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                            ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                     ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                            ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                            ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                            ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                            ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                            ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                            ;
-; INIT_FILE                          ; rv32i.hex            ; Untyped                                            ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                            ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                            ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                            ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                            ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                            ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                            ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                            ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                            ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                            ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                            ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                            ;
-; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                            ;
-; CBXI_PARAMETER                     ; altsyncram_ao71      ; Untyped                                            ;
-+------------------------------------+----------------------+----------------------------------------------------+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: progam_memory:program_memory1|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                           ;
++------------------------------------+----------------------+------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                 ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                        ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                        ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                 ;
+; WIDTHAD_A                          ; 10                   ; Signed Integer                                 ;
+; NUMWORDS_A                         ; 1024                 ; Signed Integer                                 ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                        ;
+; WIDTH_B                            ; 1                    ; Untyped                                        ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                        ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                        ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                        ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                 ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                        ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                        ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                        ;
+; INIT_FILE                          ; rv32i.hex            ; Untyped                                        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                        ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                        ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                        ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                        ;
+; CBXI_PARAMETER                     ; altsyncram_ao71      ; Untyped                                        ;
++------------------------------------+----------------------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                                              ;
-+-------------------------------------------+-------------------------------------------------------------------+
-; Name                                      ; Value                                                             ;
-+-------------------------------------------+-------------------------------------------------------------------+
-; Number of entity instances                ; 1                                                                 ;
-; Entity Instance                           ; progam_memory:memoria_de_programa|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; ROM                                                               ;
-;     -- WIDTH_A                            ; 32                                                                ;
-;     -- NUMWORDS_A                         ; 1024                                                              ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                      ;
-;     -- WIDTH_B                            ; 1                                                                 ;
-;     -- NUMWORDS_B                         ; 1                                                                 ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                            ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                      ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                              ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                         ;
-+-------------------------------------------+-------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                          ;
++-------------------------------------------+---------------------------------------------------------------+
+; Name                                      ; Value                                                         ;
++-------------------------------------------+---------------------------------------------------------------+
+; Number of entity instances                ; 1                                                             ;
+; Entity Instance                           ; progam_memory:program_memory1|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                           ;
+;     -- WIDTH_A                            ; 32                                                            ;
+;     -- NUMWORDS_A                         ; 1024                                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                  ;
+;     -- WIDTH_B                            ; 1                                                             ;
+;     -- NUMWORDS_B                         ; 1                                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                        ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                  ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                          ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                     ;
++-------------------------------------------+---------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "progam_memory:memoria_de_programa"                                                       ;
+; Port Connectivity Checks: "progam_memory:program_memory1"                                                           ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port      ; Type   ; Severity ; Details                                                                             ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
@@ -357,9 +369,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Aug 21 10:31:39 2019
+    Info: Processing started: Wed Aug 21 17:46:38 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rv32i -c rv32i
 Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file pc.vhd
+    Info (12022): Found design unit 1: pc-comportamento
+    Info (12023): Found entity 1: pc
 Warning (12090): Entity "mux" obtained from "mux.vhd" instead of from Quartus II megafunction library
 Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
     Info (12022): Found design unit 1: mux-comportamento
@@ -380,8 +395,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file progam_
     Info (12022): Found design unit 1: progam_memory-SYN
     Info (12023): Found entity 1: progam_memory
 Info (12127): Elaborating entity "datapath" for the top level hierarchy
-Info (12128): Elaborating entity "register_file" for hierarchy "register_file:banco_de_registradores"
-Info (12128): Elaborating entity "alu" for hierarchy "alu:ula"
+Info (12128): Elaborating entity "register_file" for hierarchy "register_file:register_file1"
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu1"
 Info (10041): Inferred latch for "out_alu[0]" at alu.vhd(19)
 Info (10041): Inferred latch for "out_alu[1]" at alu.vhd(19)
 Info (10041): Inferred latch for "out_alu[2]" at alu.vhd(19)
@@ -414,10 +429,10 @@ Info (10041): Inferred latch for "out_alu[28]" at alu.vhd(19)
 Info (10041): Inferred latch for "out_alu[29]" at alu.vhd(19)
 Info (10041): Inferred latch for "out_alu[30]" at alu.vhd(19)
 Info (10041): Inferred latch for "out_alu[31]" at alu.vhd(19)
-Info (12128): Elaborating entity "progam_memory" for hierarchy "progam_memory:memoria_de_programa"
-Info (12128): Elaborating entity "altsyncram" for hierarchy "progam_memory:memoria_de_programa|altsyncram:altsyncram_component"
-Info (12130): Elaborated megafunction instantiation "progam_memory:memoria_de_programa|altsyncram:altsyncram_component"
-Info (12133): Instantiated megafunction "progam_memory:memoria_de_programa|altsyncram:altsyncram_component" with the following parameter:
+Info (12128): Elaborating entity "progam_memory" for hierarchy "progam_memory:program_memory1"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "progam_memory:program_memory1|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "progam_memory:program_memory1|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "progam_memory:program_memory1|altsyncram:altsyncram_component" with the following parameter:
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "rv32i.hex"
@@ -433,65 +448,60 @@ Info (12133): Instantiated megafunction "progam_memory:memoria_de_programa|altsy
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ao71.tdf
     Info (12023): Found entity 1: altsyncram_ao71
-Info (12128): Elaborating entity "altsyncram_ao71" for hierarchy "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated"
+Info (12128): Elaborating entity "altsyncram_ao71" for hierarchy "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated"
+Info (12128): Elaborating entity "pc" for hierarchy "pc:pc1"
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[7]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[8]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[9]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[10]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[11]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[12]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[13]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[14]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[15]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[16]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[17]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[18]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[19]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[20]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[21]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[22]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[23]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[24]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[25]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[26]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[27]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[28]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[29]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[30]"
-        Warning (14320): Synthesized away node "progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[31]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[0]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[1]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[2]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[3]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[4]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[5]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[6]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[7]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[8]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[9]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[10]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[11]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[12]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[13]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[14]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[15]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[16]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[17]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[18]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[19]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[20]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[21]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[22]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[23]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[24]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[25]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[26]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[27]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[28]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[29]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[30]"
+        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[31]"
+Info (17049): 10 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 14 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clock_datapath"
-    Warning (15610): No output dependent on input pin "pc_out[0]"
-    Warning (15610): No output dependent on input pin "pc_out[1]"
-    Warning (15610): No output dependent on input pin "pc_out[2]"
-    Warning (15610): No output dependent on input pin "pc_out[3]"
-    Warning (15610): No output dependent on input pin "pc_out[4]"
-    Warning (15610): No output dependent on input pin "pc_out[5]"
-    Warning (15610): No output dependent on input pin "pc_out[6]"
-    Warning (15610): No output dependent on input pin "pc_out[7]"
-    Warning (15610): No output dependent on input pin "pc_out[8]"
-    Warning (15610): No output dependent on input pin "pc_out[9]"
-    Warning (15610): No output dependent on input pin "w_rd_datapath"
-    Warning (15610): No output dependent on input pin "r_rs1_datapath"
-    Warning (15610): No output dependent on input pin "r_rs2_datapath"
-Info (21057): Implemented 14 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 14 input pins
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clock"
+    Warning (15610): No output dependent on input pin "reset"
+    Warning (15610): No output dependent on input pin "w_rd"
+    Warning (15610): No output dependent on input pin "r_rs1"
+    Warning (15610): No output dependent on input pin "r_rs2"
+    Warning (15610): No output dependent on input pin "enable_pc"
+    Warning (15610): No output dependent on input pin "load_pc"
+Info (21057): Implemented 7 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 389 megabytes
-    Info: Processing ended: Wed Aug 21 10:31:45 2019
-    Info: Elapsed time: 00:00:06
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 45 warnings
+    Info: Peak virtual memory: 392 megabytes
+    Info: Processing ended: Wed Aug 21 17:46:41 2019
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
 

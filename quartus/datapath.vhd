@@ -4,11 +4,13 @@ USE ieee.std_logic_1164.all;
 ---------------------------------------------------------------------------------------------------------------------------------------
 ENTITY datapath IS 
 	PORT(
-		clock_datapath		:	IN		STD_LOGIC;		
-		pc_out				:	IN		STD_LOGIC_VECTOR(9 DOWNTO 0); -- memoria de instrucao
-		w_rd_datapath		:	IN		STD_LOGIC;
-		r_rs1_datapath		:  IN		STD_LOGIC;
-		r_rs2_datapath		:  IN		STD_LOGIC
+		clock			:	IN		STD_LOGIC;		
+		reset			:	IN		STD_LOGIC;
+		w_rd			:	IN		STD_LOGIC;
+		r_rs1			:  IN		STD_LOGIC;
+		r_rs2			:  IN		STD_LOGIC;
+		enable_pc	:  IN		STD_LOGIC;
+		load_pc		:  IN		STD_LOGIC
 	);
 END datapath;
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -47,41 +49,58 @@ ARCHITECTURE comportamento OF datapath IS
 		);
 	END COMPONENT;
 	
+	COMPONENT pc IS
+		PORT( 
+			clock		: 	IN 	STD_LOGIC;
+			reset_pc	: 	IN 	STD_LOGIC;
+			enable_pc: 	IN 	STD_LOGIC;
+			load_pc	: 	IN 	STD_LOGIC;
+			--end8		: 	in 	STD_LOGIC_VECTOR(9 downto 0);
+			pc_out	: 	out 	STD_LOGIC_VECTOR(9 downto 0) 
+		);
+	END COMPONENT;
 	
 	
-	
-	SIGNAL rs1_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL rs2_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);	
-	SIGNAL saida_alu		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL rs1				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL rs2				:	STD_LOGIC_VECTOR(31 DOWNTO 0);	
+	SIGNAL out_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL instrucao		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL pc_out			:  STD_LOGIC_VECTOR(9 DOWNTO 0);
 	
 	
 	
 BEGIN 
-	banco_de_registradores: register_file PORT MAP(
-								   clock 	=>	clock_datapath,
-									rd  		=>	saida_alu,
+	register_file1: 			register_file PORT MAP(
+								   clock 	=>	clock,
+									rd  		=>	out_alu,
 									add_rd	=> instrucao(11 DOWNTO 7),
-									w_rd	 	=>	w_rd_datapath,
-									rs1	  	=>	rs1_alu,
+									w_rd	 	=>	w_rd,
+									rs1	  	=>	rs1,
 									add_rs1	=> instrucao(19 DOWNTO 15),
-									r_rs1 	=>	r_rs1_datapath,
-									rs2	  	=>	rs2_alu,
+									r_rs1 	=>	r_rs1,
+									rs2	  	=>	rs2,
 									add_rs2	=> instrucao(24 DOWNTO 20),
-									r_rs2		=>	r_rs2_datapath
+									r_rs2		=>	r_rs2
 									);
 									
-	ula:							alu PORT MAP(
-									in1_alu => rs1_alu,
-									in2_alu => rs2_alu,
+	alu1:							alu PORT MAP(
+									in1_alu => rs1,
+									in2_alu => rs2,
 									sel_alu => instrucao(30)&instrucao(14 DOWNTO 12),
-									out_alu => saida_alu
+									out_alu => out_alu
 									);
 									
-	memoria_de_programa:		progam_memory PORT MAP(
+	program_memory1:			progam_memory PORT MAP(
 									address => pc_out,
-									clock	  => clock_datapath,
+									clock	  => clock,
 									q		  => instrucao
 									);
 	
+	pc1:							pc	PORT MAP(
+									clock 		=> clock,
+									reset_pc 	=> reset,
+									enable_pc 	=> enable_pc,
+									load_pc		=> load_pc,
+									pc_out		=> pc_out
+									);
 END ARCHITECTURE;

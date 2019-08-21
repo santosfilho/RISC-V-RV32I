@@ -8,25 +8,25 @@ ENTITY pc IS
 		reset_pc	: 	IN 	STD_LOGIC;
 		enable_pc: 	IN 	STD_LOGIC;
 		load_pc	: 	IN 	STD_LOGIC;
-		end8		: 	in 	STD_LOGIC_VECTOR(7 downto 0);
-		pc_out	: 	out 	std_logic_vector(7 downto 0) 
+		--end8		: 	in 	STD_LOGIC_VECTOR(9 downto 0);
+		pc_out	: 	out 	STD_LOGIC_VECTOR(9 downto 0) 
 	);
 END pc;
 
 ARCHITECTURE comportamento OF pc IS
 BEGIN
-		PROCESS(clock,reset)
-			VARIABLE temp	:	std_logic_vector(7 DOWNTO 0); 
+		PROCESS(clock,reset_pc)
+			VARIABLE temp	:	std_logic_vector(9 DOWNTO 0); 
 		begin
-			if (rst='1') then
-				temp := "00000000";
-			elsif (clk'event and clk='1') then
-				if (en_cnt='1') then
+			if (reset_pc='1') then
+				temp := "0000000000";
+			elsif (clock'event and clock='1') then
+				if (enable_pc='1') then
 					temp := temp + '1';
-				elsif (ld_pc='1') then
-					temp := end8;			
+				-- elsif (ld_pc='1') then
+				--	temp := end8;			
 				end if;
 			end if;
-		pc <= temp;	
+		pc_out <= temp;	
 		end process;	
 end comportamento;

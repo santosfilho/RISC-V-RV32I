@@ -1,22 +1,16 @@
 |datapath
-clock_datapath => register_file:banco_de_registradores.clock
-clock_datapath => progam_memory:memoria_de_programa.clock
-pc_out[0] => progam_memory:memoria_de_programa.address[0]
-pc_out[1] => progam_memory:memoria_de_programa.address[1]
-pc_out[2] => progam_memory:memoria_de_programa.address[2]
-pc_out[3] => progam_memory:memoria_de_programa.address[3]
-pc_out[4] => progam_memory:memoria_de_programa.address[4]
-pc_out[5] => progam_memory:memoria_de_programa.address[5]
-pc_out[6] => progam_memory:memoria_de_programa.address[6]
-pc_out[7] => progam_memory:memoria_de_programa.address[7]
-pc_out[8] => progam_memory:memoria_de_programa.address[8]
-pc_out[9] => progam_memory:memoria_de_programa.address[9]
-w_rd_datapath => register_file:banco_de_registradores.w_rd
-r_rs1_datapath => register_file:banco_de_registradores.r_rs1
-r_rs2_datapath => register_file:banco_de_registradores.r_rs2
+clock => register_file:register_file1.clock
+clock => progam_memory:program_memory1.clock
+clock => pc:pc1.clock
+reset => pc:pc1.reset_pc
+w_rd => register_file:register_file1.w_rd
+r_rs1 => register_file:register_file1.r_rs1
+r_rs2 => register_file:register_file1.r_rs2
+enable_pc => pc:pc1.enable_pc
+load_pc => pc:pc1.load_pc
 
 
-|datapath|register_file:banco_de_registradores
+|datapath|register_file:register_file1
 clock => memory~37.CLK
 clock => memory~0.CLK
 clock => memory~1.CLK
@@ -336,7 +330,7 @@ r_rs2 => rs2[2]~reg0.ENA
 r_rs2 => rs2[1]~reg0.ENA
 
 
-|datapath|alu:ula
+|datapath|alu:alu1
 in1_alu[0] => Add0.IN32
 in1_alu[0] => Add1.IN64
 in1_alu[0] => out_alu.IN0
@@ -823,7 +817,7 @@ out_alu[30] <= out_alu[30]$latch.DB_MAX_OUTPUT_PORT_TYPE
 out_alu[31] <= out_alu[31]$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|datapath|progam_memory:memoria_de_programa
+|datapath|progam_memory:program_memory1
 address[0] => altsyncram:altsyncram_component.address_a[0]
 address[1] => altsyncram:altsyncram_component.address_a[1]
 address[2] => altsyncram:altsyncram_component.address_a[2]
@@ -869,7 +863,7 @@ q[30] <= altsyncram:altsyncram_component.q_a[30]
 q[31] <= altsyncram:altsyncram_component.q_a[31]
 
 
-|datapath|progam_memory:memoria_de_programa|altsyncram:altsyncram_component
+|datapath|progam_memory:program_memory1|altsyncram:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -968,7 +962,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|datapath|progam_memory:memoria_de_programa|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated
+|datapath|progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -1353,5 +1347,49 @@ q_a[28] <= ram_block1a28.PORTADATAOUT
 q_a[29] <= ram_block1a29.PORTADATAOUT
 q_a[30] <= ram_block1a30.PORTADATAOUT
 q_a[31] <= ram_block1a31.PORTADATAOUT
+
+
+|datapath|pc:pc1
+clock => temp[0].CLK
+clock => temp[1].CLK
+clock => temp[2].CLK
+clock => temp[3].CLK
+clock => temp[4].CLK
+clock => temp[5].CLK
+clock => temp[6].CLK
+clock => temp[7].CLK
+clock => temp[8].CLK
+clock => temp[9].CLK
+reset_pc => temp[0].ACLR
+reset_pc => temp[1].ACLR
+reset_pc => temp[2].ACLR
+reset_pc => temp[3].ACLR
+reset_pc => temp[4].ACLR
+reset_pc => temp[5].ACLR
+reset_pc => temp[6].ACLR
+reset_pc => temp[7].ACLR
+reset_pc => temp[8].ACLR
+reset_pc => temp[9].ACLR
+enable_pc => temp[0].ENA
+enable_pc => temp[9].ENA
+enable_pc => temp[8].ENA
+enable_pc => temp[7].ENA
+enable_pc => temp[6].ENA
+enable_pc => temp[5].ENA
+enable_pc => temp[4].ENA
+enable_pc => temp[3].ENA
+enable_pc => temp[2].ENA
+enable_pc => temp[1].ENA
+load_pc => ~NO_FANOUT~
+pc_out[0] <= temp[0].DB_MAX_OUTPUT_PORT_TYPE
+pc_out[1] <= temp[1].DB_MAX_OUTPUT_PORT_TYPE
+pc_out[2] <= temp[2].DB_MAX_OUTPUT_PORT_TYPE
+pc_out[3] <= temp[3].DB_MAX_OUTPUT_PORT_TYPE
+pc_out[4] <= temp[4].DB_MAX_OUTPUT_PORT_TYPE
+pc_out[5] <= temp[5].DB_MAX_OUTPUT_PORT_TYPE
+pc_out[6] <= temp[6].DB_MAX_OUTPUT_PORT_TYPE
+pc_out[7] <= temp[7].DB_MAX_OUTPUT_PORT_TYPE
+pc_out[8] <= temp[8].DB_MAX_OUTPUT_PORT_TYPE
+pc_out[9] <= temp[9].DB_MAX_OUTPUT_PORT_TYPE
 
 
