@@ -5,7 +5,7 @@ USE ieee.std_logic_1164.all;
 ENTITY datapath IS 
 	PORT(
 		clock_datapath		:	IN		STD_LOGIC;		
-		imem					:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0); -- memoria de instrucao
+		pc_out				:	IN		STD_LOGIC_VECTOR(9 DOWNTO 0); -- memoria de instrucao
 		w_rd_datapath		:	IN		STD_LOGIC;
 		r_rs1_datapath		:  IN		STD_LOGIC;
 		r_rs2_datapath		:  IN		STD_LOGIC
@@ -39,9 +39,21 @@ ARCHITECTURE comportamento OF datapath IS
 		);
 	END COMPONENT;
 	
+	COMPONENT progam_memory IS
+		PORT(
+			address		: IN STD_LOGIC_VECTOR (9 DOWNTO 0);
+			clock			: IN STD_LOGIC  := '1';
+			q				: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+		);
+	END COMPONENT;
+	
+	
+	
+	
 	SIGNAL rs1_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL rs2_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);	
 	SIGNAL saida_alu		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL instrucao		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	
 	
 	
@@ -49,21 +61,27 @@ BEGIN
 	banco_de_registradores: register_file PORT MAP(
 								   clock 	=>	clock_datapath,
 									rd  		=>	saida_alu,
-									add_rd	=> imem(11 DOWNTO 7),
+									add_rd	=> instrucao(11 DOWNTO 7),
 									w_rd	 	=>	w_rd_datapath,
 									rs1	  	=>	rs1_alu,
-									add_rs1	=> imem(19 DOWNTO 15),
+									add_rs1	=> instrucao(19 DOWNTO 15),
 									r_rs1 	=>	r_rs1_datapath,
 									rs2	  	=>	rs2_alu,
-									add_rs2	=> imem(24 DOWNTO 20),
+									add_rs2	=> instrucao(24 DOWNTO 20),
 									r_rs2		=>	r_rs2_datapath
 									);
 									
 	ula:							alu PORT MAP(
 									in1_alu => rs1_alu,
 									in2_alu => rs2_alu,
-									sel_alu => imem(30)&imem(14 DOWNTO 12),
+									sel_alu => instrucao(30)&instrucao(14 DOWNTO 12),
 									out_alu => saida_alu
+									);
+									
+	memoria_de_programa:		progam_memory PORT MAP(
+									address => pc_out,
+									clock	  => clock_datapath,
+									q		  => instrucao
 									);
 	
 END ARCHITECTURE;

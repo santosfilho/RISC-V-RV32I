@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="rv32i">
+		<CBX_INST_ENTRY INSTANCE_NAME="|datapath|progam_memory:memoria_de_programa|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_ao71.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

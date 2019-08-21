@@ -1,5 +1,5 @@
 Flow report for rv32i
-Mon Aug 19 09:29:30 2019
+Wed Aug 21 10:31:45 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,23 +40,21 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon Aug 19 09:29:30 2019           ;
+; Flow Status                        ; Successful - Wed Aug 21 10:31:45 2019           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; rv32i                                           ;
 ; Top-level Entity Name              ; datapath                                        ;
-; Family                             ; Cyclone IV GX                                   ;
+; Family                             ; Cyclone II                                      ;
+; Device                             ; EP2C35F672C6                                    ;
+; Timing Models                      ; Final                                           ;
 ; Total logic elements               ; 0                                               ;
 ;     Total combinational functions  ; 0                                               ;
 ;     Dedicated logic registers      ; 0                                               ;
 ; Total registers                    ; 0                                               ;
-; Total pins                         ; 36                                              ;
+; Total pins                         ; 14                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
-; Total GXB Receiver Channel PCS     ; 0                                               ;
-; Total GXB Receiver Channel PMA     ; 0                                               ;
-; Total GXB Transmitter Channel PCS  ; 0                                               ;
-; Total GXB Transmitter Channel PMA  ; 0                                               ;
 ; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
 
@@ -66,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/19/2019 09:29:25 ;
+; Start date & time ; 08/21/2019 10:31:40 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; rv32i               ;
 +-------------------+---------------------+
@@ -77,10 +75,15 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 247087954713146.156621776505636 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 247087954713146.156639430004728 ; --            ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                              ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                     ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)       ; <None>        ; --          ; --             ;
+; IP_TOOL_NAME                        ; ROM: 1-PORT                     ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                            ; --            ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --            ; --          ; --             ;
+; MISC_FILE                           ; progam_memory.cmp               ; --            ; --          ; --             ;
 ; PARTITION_COLOR                     ; 16764057                        ; --            ; datapath    ; Top            ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --            ; datapath    ; Top            ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --            ; datapath    ; Top            ;
@@ -94,8 +97,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:04     ; 1.0                     ; 409 MB              ; 00:00:02                           ;
-; Total                ; 00:00:04     ; --                      ; --                  ; 00:00:02                           ;
+; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 388 MB              ; 00:00:02                           ;
+; Total                ; 00:00:05     ; --                      ; --                  ; 00:00:02                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
