@@ -1,6 +1,6 @@
 EDA Netlist Writer report for rv32i
-Sun Aug 11 17:23:14 2019
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Mon Aug 26 10:35:11 2019
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
 ---------------------
@@ -36,10 +36,10 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Sun Aug 11 17:23:14 2019 ;
+; EDA Netlist Writer Status ; Successful - Mon Aug 26 10:35:11 2019 ;
 ; Revision Name             ; rv32i                                 ;
-; Top-level Entity Name     ; rv32i                                 ;
-; Family                    ; Cyclone IV GX                         ;
+; Top-level Entity Name     ; datapath                              ;
+; Family                    ; Cyclone II                            ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
 
@@ -65,29 +65,28 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+---------------------------+
 
 
-+-----------------------------------------------+
-; Simulation Generated Files                    ;
-+-----------------------------------------------+
-; Generated Files                               ;
-+-----------------------------------------------+
-; D:/Desktop/rv32i/simulation/modelsim/rv32i.vo ;
-+-----------------------------------------------+
++----------------------------------------------------------------------+
+; Simulation Generated Files                                           ;
++----------------------------------------------------------------------+
+; Generated Files                                                      ;
++----------------------------------------------------------------------+
+; C:/Users/josec/dev/RISC-V-RV32I/quartus/simulation/modelsim/rv32i.vo ;
++----------------------------------------------------------------------+
 
 
 +-----------------------------+
 ; EDA Netlist Writer Messages ;
 +-----------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 32-bit EDA Netlist Writer
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Aug 11 17:23:11 2019
+Info: Running Quartus II 64-Bit EDA Netlist Writer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Mon Aug 26 10:35:09 2019
 Info: Command: quartus_eda --functional=on --simulation=on --tool=modelsim_oem --format=verilog rv32i -c rv32i
-Info (119004): Automatically selected device EP4CGX22CF19C6 for design rv32i
-Info (119005): Fitting design with smaller device may be possible, but smaller device must be specified
-Info (204019): Generated file rv32i.vo in folder "D:/Desktop/rv32i/simulation/modelsim/" for EDA simulation tool
-Info: Quartus II 32-bit EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 356 megabytes
-    Info: Processing ended: Sun Aug 11 17:23:14 2019
+Info (119006): Selected device EP2C35F672C6 for design "rv32i"
+Info (204019): Generated file rv32i.vo in folder "C:/Users/josec/dev/RISC-V-RV32I/quartus/simulation/modelsim/" for EDA simulation tool
+Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4549 megabytes
+    Info: Processing ended: Mon Aug 26 10:35:12 2019
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:01
 

@@ -10,7 +10,8 @@ ENTITY datapath IS
 		r_rs1			:  IN		STD_LOGIC;
 		r_rs2			:  IN		STD_LOGIC;
 		enable_pc	:  IN		STD_LOGIC;
-		load_pc		:  IN		STD_LOGIC
+		load_pc		:  IN		STD_LOGIC;
+		saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END datapath;
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -56,7 +57,7 @@ ARCHITECTURE comportamento OF datapath IS
 			enable_pc: 	IN 	STD_LOGIC;
 			load_pc	: 	IN 	STD_LOGIC;
 			--end8		: 	in 	STD_LOGIC_VECTOR(9 downto 0);
-			pc_out	: 	out 	STD_LOGIC_VECTOR(9 downto 0) 
+			pc_out	: 	out 	STD_LOGIC_VECTOR(11 downto 0) 
 		);
 	END COMPONENT;
 	
@@ -65,7 +66,7 @@ ARCHITECTURE comportamento OF datapath IS
 	SIGNAL rs2				:	STD_LOGIC_VECTOR(31 DOWNTO 0);	
 	SIGNAL out_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL instrucao		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL pc_out			:  STD_LOGIC_VECTOR(9 DOWNTO 0);
+	SIGNAL pc_out			:  STD_LOGIC_VECTOR(11 DOWNTO 0);
 	
 	
 	
@@ -91,7 +92,7 @@ BEGIN
 									);
 									
 	program_memory1:			progam_memory PORT MAP(
-									address => pc_out,
+									address => pc_out(11 downto 2),
 									clock	  => clock,
 									q		  => instrucao
 									);
@@ -103,4 +104,5 @@ BEGIN
 									load_pc		=> load_pc,
 									pc_out		=> pc_out
 									);
+	saida_teste <= out_alu;
 END ARCHITECTURE;

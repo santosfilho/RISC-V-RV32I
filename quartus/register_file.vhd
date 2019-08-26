@@ -29,24 +29,28 @@ ARCHITECTURE comportamento OF register_file IS
 BEGIN
 	PROCESS(clock, w_rd, r_rs1, r_rs2) 
 	BEGIN
-		IF (w_rd = '1') THEN
-			IF (clock'event AND clock='1') THEN
-				memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rd))) <= rd;
+		IF (TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rd)) /= 0) THEN
+			IF (w_rd = '1') THEN
+				IF (clock'event AND clock='1') THEN
+					memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rd))) <= rd;
+				END IF;
+			END IF;
+			
+			IF (r_rs1 = '1') THEN
+				IF (clock'event AND clock='1') THEN
+					rs1 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs1)));
+				END IF;
+			END IF;
+			
+			IF (r_rs2 = '1') THEN
+				IF (clock'event AND clock='1') THEN
+					rs2 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs2)));
+				END IF;
 			END IF;
 		END IF;
-		
-		IF (r_rs1 = '1') THEN
-			IF (clock'event AND clock='1') THEN
-				rs1 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs1)));
-			END IF;
-		END IF;
-		
-		IF (r_rs2 = '1') THEN
-			IF (clock'event AND clock='1') THEN
-				rs2 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs2)));
-			END IF;
-		END IF;
-	END PROCESS;	
-	--memory(0) <= conv_std_logic_vector(0,32); --x0 e sempre 0
+	memory(0) <= conv_std_logic_vector(0,32); --x0 e sempre "00000000000000000000000000000000";
+	memory(1) <= conv_std_logic_vector(1,32);
+	memory(2) <= conv_std_logic_vector(2,32);
+	END PROCESS;
 
 END comportamento;
