@@ -9,6 +9,8 @@ entity datapath is
         r_rs2           : in     vl_logic;
         enable_pc       : in     vl_logic;
         load_pc         : in     vl_logic;
-        saida_teste     : out    vl_logic_vector(31 downto 0)
+        saida_teste     : out    vl_logic_vector(31 downto 0);
+        saida_teste_sel_alu: out    vl_logic_vector(3 downto 0);
+        saida_teste_instrucao: out    vl_logic_vector(31 downto 0)
     );
 end datapath;

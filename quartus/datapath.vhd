@@ -11,7 +11,9 @@ ENTITY datapath IS
 		r_rs2			:  IN		STD_LOGIC;
 		enable_pc	:  IN		STD_LOGIC;
 		load_pc		:  IN		STD_LOGIC;
-		saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0)
+		saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
+		saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END datapath;
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -105,4 +107,6 @@ BEGIN
 									pc_out		=> pc_out
 									);
 	saida_teste <= out_alu;
+	saida_teste_sel_alu <= instrucao(30)&instrucao(14 DOWNTO 12);
+	saida_teste_instrucao <= instrucao;
 END ARCHITECTURE;

@@ -435,6 +435,386 @@ SIGNAL("saida_teste[0]")
 	PARENT = "saida_teste";
 }
 
+SIGNAL("saida_teste_sel_alu")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 4;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("saida_teste_sel_alu[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_sel_alu";
+}
+
+SIGNAL("saida_teste_sel_alu[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_sel_alu";
+}
+
+SIGNAL("saida_teste_sel_alu[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_sel_alu";
+}
+
+SIGNAL("saida_teste_sel_alu[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_sel_alu";
+}
+
+SIGNAL("saida_teste_instrucao")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 32;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("saida_teste_instrucao[31]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[30]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[29]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[28]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[27]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[26]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[25]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[24]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[23]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[22]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[21]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[20]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[19]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[18]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[17]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[16]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[15]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[14]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[13]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[12]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[11]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[10]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[9]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[8]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[7]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
+SIGNAL("saida_teste_instrucao[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "saida_teste_instrucao";
+}
+
 TRANSITION_LIST("clock")
 {
 	NODE
@@ -867,7 +1247,8 @@ TRANSITION_LIST("saida_teste[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 700.0;
+		LEVEL 0 FOR 25.001;
+		LEVEL 1 FOR 674.999;
 	}
 }
 TRANSITION_LIST("saida_teste[1]")
@@ -885,7 +1266,320 @@ TRANSITION_LIST("saida_teste[0]")
 	{
 		REPEAT = 1;
 		LEVEL 0 FOR 15.0;
-		LEVEL 1 FOR 685.0;
+		LEVEL 1 FOR 10.001;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_sel_alu[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_sel_alu[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_sel_alu[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_sel_alu[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[31]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[30]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[29]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[28]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[27]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[26]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[25]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[24]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[23]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[22]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[21]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[20]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[19]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[18]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[17]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[16]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[15]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[14]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[13]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[12]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[11]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[10]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[9]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[8]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[7]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
+	}
+}
+TRANSITION_LIST("saida_teste_instrucao[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 5.001;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 674.999;
 	}
 }
 
@@ -1281,6 +1975,386 @@ DISPLAY_LINE
 	TREE_INDEX = 39;
 	TREE_LEVEL = 1;
 	PARENT = 7;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_sel_alu";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 40;
+	TREE_LEVEL = 0;
+	CHILDREN = 41, 42, 43, 44;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_sel_alu[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 41;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_sel_alu[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 42;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_sel_alu[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 43;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_sel_alu[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 44;
+	TREE_LEVEL = 1;
+	PARENT = 40;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 45;
+	TREE_LEVEL = 0;
+	CHILDREN = 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[31]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 46;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[30]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 47;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[29]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 48;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[28]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 49;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[27]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 50;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[26]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 51;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[25]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 52;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[24]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 53;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[23]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 54;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[22]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 55;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[21]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 56;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[20]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 57;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[19]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 58;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[18]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 59;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[17]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 60;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[16]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 61;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[15]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 62;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[14]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 63;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[13]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 64;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[12]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 65;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[11]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 66;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[10]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 67;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[9]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 68;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[8]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 69;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[7]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 70;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 71;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 72;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 73;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 74;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 75;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 76;
+	TREE_LEVEL = 1;
+	PARENT = 45;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "saida_teste_instrucao[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 77;
+	TREE_LEVEL = 1;
+	PARENT = 45;
 }
 TIME_BAR
 {

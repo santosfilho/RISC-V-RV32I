@@ -29,5 +29,5 @@
 # Loading work.datapath_vlg_check_tst
 # Loading cycloneii_ver.CYCLONEII_PRIM_DFFE
 # Simulation passed !
-# ** Note: $finish    : rv32i.vt(717)
+# ** Note: $finish    : rv32i.vt(1381)
 #    Time: 700 ns  Iteration: 0  Instance: /datapath_vlg_vec_tst/tb_out

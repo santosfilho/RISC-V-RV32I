@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rv32i
-Mon Aug 26 10:34:55 2019
+Wed Aug 28 10:38:11 2019
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -22,9 +22,8 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
  14. Parameter Settings for User Entity Instance: progam_memory:program_memory1|altsyncram:altsyncram_component
  15. altsyncram Parameter Settings by Entity Instance
  16. Port Connectivity Checks: "pc:pc1"
- 17. Port Connectivity Checks: "progam_memory:program_memory1"
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -50,18 +49,18 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 26 10:34:55 2019            ;
+; Analysis & Synthesis Status        ; Successful - Wed Aug 28 10:38:11 2019            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; rv32i                                            ;
 ; Top-level Entity Name              ; datapath                                         ;
 ; Family                             ; Cyclone II                                       ;
-; Total logic elements               ; 2,389                                            ;
-;     Total combinational functions  ; 1,493                                            ;
+; Total logic elements               ; 2,388                                            ;
+;     Total combinational functions  ; 1,492                                            ;
 ;     Dedicated logic registers      ; 1,002                                            ;
 ; Total registers                    ; 1002                                             ;
-; Total pins                         ; 39                                               ;
+; Total pins                         ; 75                                               ;
 ; Total virtual pins                 ; 0                                                ;
-; Total memory bits                  ; 19,456                                           ;
+; Total memory bits                  ; 32,768                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                                ;
 ; Total PLLs                         ; 0                                                ;
 +------------------------------------+--------------------------------------------------+
@@ -198,29 +197,29 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 2,389 ;
+; Estimated Total logic elements              ; 2,388 ;
 ;                                             ;       ;
-; Total combinational functions               ; 1493  ;
+; Total combinational functions               ; 1492  ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 1229  ;
-;     -- 3 input functions                    ; 220   ;
+;     -- 4 input functions                    ; 1248  ;
+;     -- 3 input functions                    ; 200   ;
 ;     -- <=2 input functions                  ; 44    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 1453  ;
+;     -- normal mode                          ; 1452  ;
 ;     -- arithmetic mode                      ; 40    ;
 ;                                             ;       ;
 ; Total registers                             ; 1002  ;
 ;     -- Dedicated logic registers            ; 1002  ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 39    ;
-; Total memory bits                           ; 19456 ;
+; I/O pins                                    ; 75    ;
+; Total memory bits                           ; 32768 ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; clock ;
-; Maximum fan-out                             ; 1021  ;
-; Total fan-out                               ; 8919  ;
-; Average fan-out                             ; 3.49  ;
+; Maximum fan-out                             ; 1034  ;
+; Total fan-out                               ; 9114  ;
+; Average fan-out                             ; 3.50  ;
 +---------------------------------------------+-------+
 
 
@@ -229,13 +228,13 @@ applicable agreement for further details.
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
-; |datapath                                 ; 1493 (0)          ; 1002 (0)     ; 19456       ; 0            ; 0       ; 0         ; 39   ; 0            ; |datapath                                                                                              ; work         ;
+; |datapath                                 ; 1492 (0)          ; 1002 (0)     ; 32768       ; 0            ; 0       ; 0         ; 75   ; 0            ; |datapath                                                                                              ; work         ;
 ;    |alu:alu1|                             ; 164 (164)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|alu:alu1                                                                                     ; work         ;
 ;    |pc:pc1|                               ; 10 (10)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|pc:pc1                                                                                       ; work         ;
-;    |progam_memory:program_memory1|        ; 0 (0)             ; 0 (0)        ; 19456       ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|progam_memory:program_memory1                                                                ; work         ;
-;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 19456       ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|progam_memory:program_memory1|altsyncram:altsyncram_component                                ; work         ;
-;          |altsyncram_ao71:auto_generated| ; 0 (0)             ; 0 (0)        ; 19456       ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated ; work         ;
-;    |register_file:register_file1|         ; 1319 (1319)       ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|register_file:register_file1                                                                 ; work         ;
+;    |progam_memory:program_memory1|        ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|progam_memory:program_memory1                                                                ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|progam_memory:program_memory1|altsyncram:altsyncram_component                                ; work         ;
+;          |altsyncram_ao71:auto_generated| ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated ; work         ;
+;    |register_file:register_file1|         ; 1318 (1318)       ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |datapath|register_file:register_file1                                                                 ; work         ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -425,17 +424,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "progam_memory:program_memory1"                                                           ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; q[29..25] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; q[6..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; q[31]     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
@@ -451,7 +439,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Aug 26 10:34:46 2019
+    Info: Processing started: Wed Aug 28 10:38:03 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rv32i -c rv32i
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file pc.vhd
@@ -536,21 +524,6 @@ Info (12128): Elaborating entity "pc" for hierarchy "pc:pc1"
 Warning (10631): VHDL Process Statement warning at pc.vhd(18): inferring latch(es) for signal or variable "temp", which holds its previous value in one or more paths through the process
 Info (10041): Inferred latch for "temp[0]" at pc.vhd(21)
 Info (10041): Inferred latch for "temp[1]" at pc.vhd(21)
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[0]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[1]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[2]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[3]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[4]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[5]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[6]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[25]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[26]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[27]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[28]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[29]"
-        Warning (14320): Synthesized away node "progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[31]"
 Warning (13012): Latch alu:alu1|out_alu[0] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal progam_memory:program_memory1|altsyncram:altsyncram_component|altsyncram_ao71:auto_generated|q_a[14]
 Warning (13012): Latch alu:alu1|out_alu[1] has unsafe behavior
@@ -619,15 +592,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "load_pc"
-Info (21057): Implemented 2479 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2527 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
-    Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 2421 logic cells
-    Info (21064): Implemented 19 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 85 warnings
-    Info: Peak virtual memory: 4690 megabytes
-    Info: Processing ended: Mon Aug 26 10:34:55 2019
-    Info: Elapsed time: 00:00:09
+    Info (21059): Implemented 68 output pins
+    Info (21061): Implemented 2420 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 70 warnings
+    Info: Peak virtual memory: 4688 megabytes
+    Info: Processing ended: Wed Aug 28 10:38:11 2019
+    Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:06
 
 
