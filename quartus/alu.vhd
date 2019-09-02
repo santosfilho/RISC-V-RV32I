@@ -12,10 +12,12 @@ ENTITY alu IS
 END alu;
 
 ARCHITECTURE comportamento OF alu IS
-	
+
 	BEGIN
-	
 	PROCESS(sel_alu)
+	VARIABLE i : integer;
+	VARIABLE in1_alu_temp : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	
 	BEGIN
 	--aritimetica--
 		CASE sel_alu IS
@@ -30,7 +32,14 @@ ARCHITECTURE comportamento OF alu IS
 				out_alu <= in1_alu OR  in2_alu; -- OR
 			WHEN "0111" => 
 				out_alu <= in1_alu AND in2_alu; -- AND
+			WHEN "0001" =>
+			i := 0;
+				WHILE i <= TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(in2_alu(4 DOWNTO 0))) LOOP
+					in1_alu_temp := in1_alu;
+					out_alu(31 DOWNTO 0) <= in1_alu_temp(30 DOWNTO 0) & '0';
+					i := i + 1;
+				END LOOP;
 			WHEN OTHERS => NULL;
-				
-	
+		END CASE;
+	END PROCESS;
 END comportamento;

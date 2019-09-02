@@ -50,7 +50,7 @@ BEGIN
 		END IF;
 	memory(0) <= conv_std_logic_vector(0,32); --x0 e sempre "00000000000000000000000000000000";
 	memory(1) <= conv_std_logic_vector(3,32);
-	memory(2) <= conv_std_logic_vector(3,32);
+	memory(2) <= conv_std_logic_vector(1,32);
 	END PROCESS;
 
 END comportamento;
