@@ -14,14 +14,23 @@ END alu;
 ARCHITECTURE comportamento OF alu IS
 	
 	BEGIN
+	
+	PROCESS(sel_alu)
+	BEGIN
 	--aritimetica--
-	WITH sel_alu (3 DOWNTO 0) SELECT
-		out_alu <= 	in1_alu + in2_alu 	WHEN "0000", -- ADD
-						in1_alu - in2_alu		WHEN "1000", -- SUB						
+		CASE sel_alu IS
+			WHEN "0000" =>
+				out_alu <= 	in1_alu + in2_alu; --ADD 	
+			WHEN "1000" => 
+				out_alu <= in1_alu - in2_alu;	 --SUB						
 	--logica-- 
-						in1_alu XOR in2_alu	WHEN "0100", -- XOR
-						in1_alu OR  in2_alu 	WHEN "0110", -- OR
-						in1_alu AND in2_alu	WHEN "0111", -- AND							
-						UNAFFECTED 				WHEN OTHERS;
+			WHEN "0100" => 
+				out_alu <= in1_alu XOR in2_alu; -- XOR
+			WHEN "0110" => 
+				out_alu <= in1_alu OR  in2_alu; -- OR
+			WHEN "0111" => 
+				out_alu <= in1_alu AND in2_alu; -- AND
+			WHEN OTHERS => NULL;
+				
 	
 END comportamento;
