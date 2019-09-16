@@ -11,6 +11,7 @@ ENTITY datapath IS
 		r_rs2			:  IN		STD_LOGIC;
 		enable_pc	:  IN		STD_LOGIC;
 		load_pc		:  IN		STD_LOGIC;
+		BSel			:	IN		STD_LOGIC;
 		saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
 		saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
@@ -63,13 +64,28 @@ ARCHITECTURE comportamento OF datapath IS
 		);
 	END COMPONENT;
 	
+	COMPONENT geradorImm IS
+		PORT(
+			in_ger		:	IN		STD_LOGIC_VECTOR(11 DOWNTO 0);
+			out_ger		:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0)
+		);
+	END COMPONENT;
+	
+	COMPONENT mux IS
+		PORT(
+			in1_mux, in2_mux		:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
+			sel_mux					:	IN		STD_LOGIC;
+			out_mux					:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0)
+		);
+	END COMPONENT;
 	
 	SIGNAL rs1				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL rs2				:	STD_LOGIC_VECTOR(31 DOWNTO 0);	
 	SIGNAL out_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL instrucao		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL pc_out			:  STD_LOGIC_VECTOR(11 DOWNTO 0);
-	
+	SIGNAL imm_ext			: 	STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL out_mux			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	
 	
 BEGIN 
@@ -88,7 +104,7 @@ BEGIN
 									
 	alu1:							alu PORT MAP(
 									in1_alu => rs1,
-									in2_alu => rs2,
+									in2_alu => out_mux,
 									sel_alu => instrucao(30)&instrucao(14 DOWNTO 12),
 									out_alu => out_alu
 									);
@@ -106,6 +122,20 @@ BEGIN
 									load_pc		=> load_pc,
 									pc_out		=> pc_out
 									);
+									
+	geradorImm1:				geradorImm PORT MAP(
+									in_ger		=>	instrucao(31 DOWNTO 20),
+									out_ger		=> imm_ext
+									);
+	
+	mux1:							mux PORT MAP(
+									in1_mux		=> rs2,
+									in2_mux		=> imm_ext,
+									sel_mux		=> BSel,
+									out_mux		=> out_mux
+									);
+	
+	
 	saida_teste <= out_alu;
 	saida_teste_sel_alu <= instrucao(30)&instrucao(14 DOWNTO 12);
 	saida_teste_instrucao <= instrucao;
