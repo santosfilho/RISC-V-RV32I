@@ -49,8 +49,8 @@ BEGIN
 			END IF;
 		END IF;
 	memory(0) <= conv_std_logic_vector(0,32); --x0 e sempre "00000000000000000000000000000000";
-	memory(1) <= conv_std_logic_vector(75,32); 
-	--memory(2) <= conv_std_logic_vector(5,32); 
+	memory(1) <= conv_std_logic_vector(1,32); 
+	memory(2) <= conv_std_logic_vector(5,32); 
 	--memory(1) <= conv_std_logic_vector(6,32);
 	--memory(1) <= "11111111111111111111111111111000";-- -8 conv_std_logic_vector(5,32);
 	--memory(2) <= "11111111111111111111111111111100";-- -4  conv_std_logic_vector(2,32);

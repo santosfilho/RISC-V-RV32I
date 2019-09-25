@@ -822,6 +822,406 @@ SIGNAL("BSel")
 	PARENT = "";
 }
 
+SIGNAL("ALUSel")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 4;
+	LSB_INDEX = 0;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("ALUSel[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "ALUSel";
+}
+
+SIGNAL("ALUSel[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "ALUSel";
+}
+
+SIGNAL("ALUSel[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "ALUSel";
+}
+
+SIGNAL("ALUSel[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "ALUSel";
+}
+
+SIGNAL("WBSel")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("MemRW")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("dmem_saida_teste")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = BUS;
+	WIDTH = 32;
+	LSB_INDEX = 0;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("dmem_saida_teste[31]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[30]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[29]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[28]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[27]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[26]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[25]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[24]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[23]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[22]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[21]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[20]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[19]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[18]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[17]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[16]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[15]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[14]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[13]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[12]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[11]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[10]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[9]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[8]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[7]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
+SIGNAL("dmem_saida_teste[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "dmem_saida_teste";
+}
+
 TRANSITION_LIST("clock")
 {
 	NODE
@@ -1508,6 +1908,348 @@ TRANSITION_LIST("BSel")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("ALUSel[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("ALUSel[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("ALUSel[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("ALUSel[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("WBSel")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("MemRW")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[31]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[30]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[29]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[28]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[27]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[26]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[25]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[24]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[23]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[22]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[21]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[20]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[19]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[18]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[17]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[16]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[15]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[14]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[13]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[12]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[11]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[10]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[9]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[8]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[7]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
+	}
+}
+
+TRANSITION_LIST("dmem_saida_teste[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 700.0;
 	}
 }
 
@@ -2291,6 +3033,404 @@ DISPLAY_LINE
 	RADIX = Binary;
 	TREE_INDEX = 78;
 	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "ALUSel";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 79;
+	TREE_LEVEL = 0;
+	CHILDREN = 80, 81, 82, 83;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "ALUSel[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 80;
+	TREE_LEVEL = 1;
+	PARENT = 79;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "ALUSel[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 81;
+	TREE_LEVEL = 1;
+	PARENT = 79;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "ALUSel[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 82;
+	TREE_LEVEL = 1;
+	PARENT = 79;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "ALUSel[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 83;
+	TREE_LEVEL = 1;
+	PARENT = 79;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "WBSel";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 84;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "MemRW";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 85;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 86;
+	TREE_LEVEL = 0;
+	CHILDREN = 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[31]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 87;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[30]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 88;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[29]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 89;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[28]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 90;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[27]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 91;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[26]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 92;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[25]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 93;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[24]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 94;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[23]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 95;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[22]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 96;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[21]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 97;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[20]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 98;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[19]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 99;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[18]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 100;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[17]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 101;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[16]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 102;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[15]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 103;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[14]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 104;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[13]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 105;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[12]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 106;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[11]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 107;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[10]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 108;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[9]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 109;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[8]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 110;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[7]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 111;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 112;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 113;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 114;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 115;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 116;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 117;
+	TREE_LEVEL = 1;
+	PARENT = 86;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "dmem_saida_teste[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 118;
+	TREE_LEVEL = 1;
+	PARENT = 86;
 }
 
 TIME_BAR

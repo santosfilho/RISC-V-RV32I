@@ -1,3 +1,19 @@
+----------- INSTRUÇÕES TIPO S -------------
+
+offset	  rs2  rs1		offst  opcode
+0000000 00000 00010 000 00011 0000000
+
+SB -> Armazena o byte menos significativo em rs2
+
+0000000 00010 00001 000 00010 0100011 -> 20 8123
+ALUSel=>0000
+
+SH
+SW
+
+
+
+
 ----------- INSTRUÇÕES TIPO I -------------
 * Serão passados 32 bits para a ALU, chamaremos de instALU.
 * Os 12bits mais significativos(imm[31:20]) da instrução é copiado para os 12 menos sigficativos da instALU[11:0], os demais campos da instALU[31:12] serão preenchidos com a o valor de imm[31]

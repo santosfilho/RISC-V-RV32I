@@ -12,9 +12,13 @@ ENTITY datapath IS
 		enable_pc	:  IN		STD_LOGIC;
 		load_pc		:  IN		STD_LOGIC;
 		BSel			:	IN		STD_LOGIC;
+		MemRW			: 	IN		STD_LOGIC;
+		WBSel			: 	IN		STD_LOGIC;
+		ALUSel		:	IN		STD_LOGIC_VECTOR(3 DOWNTO 0);
 		saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
 		saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-		saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END datapath;
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -79,6 +83,24 @@ ARCHITECTURE comportamento OF datapath IS
 		);
 	END COMPONENT;
 	
+	COMPONENT extensor_bhw IS
+		PORT(
+			data_bhw_in			:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
+			sel_bhw				:	IN		STD_LOGIC_VECTOR(2 DOWNTO 0);
+			ext_data_bhw		:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0)
+		);
+	END COMPONENT;
+	
+	COMPONENT dmem IS 
+		PORT(
+			address		: IN STD_LOGIC_VECTOR (9 DOWNTO 0);
+			clock			: IN STD_LOGIC  := '1';
+			data			: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+			wren			: IN STD_LOGIC ;
+			q				: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+		);
+	END COMPONENT;
+	
 	SIGNAL rs1				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL rs2				:	STD_LOGIC_VECTOR(31 DOWNTO 0);	
 	SIGNAL out_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -86,12 +108,14 @@ ARCHITECTURE comportamento OF datapath IS
 	SIGNAL pc_out			:  STD_LOGIC_VECTOR(11 DOWNTO 0);
 	SIGNAL imm_ext			: 	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL out_mux			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
-	
-	
+	SIGNAL ext_data_bhw	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL q_dmem			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL wb				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+		
 BEGIN 
 	register_file1: 			register_file PORT MAP(
 								   clock 	=>	clock,
-									rd  		=>	out_alu,
+									rd  		=>	wb,
 									add_rd	=> instrucao(11 DOWNTO 7),
 									w_rd	 	=>	w_rd,
 									rs1	  	=>	rs1,
@@ -105,7 +129,7 @@ BEGIN
 	alu1:							alu PORT MAP(
 									in1_alu => rs1,
 									in2_alu => out_mux,
-									sel_alu => instrucao(30)&instrucao(14 DOWNTO 12),
+									sel_alu => ALUSel,--instrucao(30)&instrucao(14 DOWNTO 12),
 									out_alu => out_alu
 									);
 									
@@ -135,8 +159,32 @@ BEGIN
 									out_mux		=> out_mux
 									);
 	
+	extensor_bhw1:				extensor_bhw PORT MAP(
+									data_bhw_in 	=> rs2,
+									sel_bhw			=> instrucao(14 DOWNTO 12),
+									ext_data_bhw	=> ext_data_bhw
+									);
+								
+	dmem1:
+									dmem PORT MAP(
+									address		=> out_alu(9 DOWNTO 0),
+									clock			=> clock,
+									data			=> ext_data_bhw,
+									wren			=> MemRW,
+									q				=> q_dmem
+									
+									);
+									
+	mux2:							mux PORT MAP(
+									in1_mux		=> q_dmem,
+									in2_mux		=> out_alu,
+									sel_mux		=> WBSel,
+									out_mux		=> wb
+									);
+	
 	
 	saida_teste <= out_alu;
 	saida_teste_sel_alu <= instrucao(30)&instrucao(14 DOWNTO 12);
 	saida_teste_instrucao <= instrucao;
+	dmem_saida_teste <= q_dmem;
 END ARCHITECTURE;
