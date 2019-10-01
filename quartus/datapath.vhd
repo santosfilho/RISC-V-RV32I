@@ -6,18 +6,19 @@ ENTITY datapath IS
 	PORT(
 		clock			:	IN		STD_LOGIC;		
 		reset			:	IN		STD_LOGIC;
-		w_rd			:	IN		STD_LOGIC;
-		r_rs1			:  IN		STD_LOGIC;
-		r_rs2			:  IN		STD_LOGIC;
+		w_rd			:	IN		STD_LOGIC;		
 		enable_pc	:  IN		STD_LOGIC;
 		load_pc		:  IN		STD_LOGIC;
 		BSel			:	IN		STD_LOGIC;
 		MemRW			: 	IN		STD_LOGIC;
 		WBSel			: 	IN		STD_LOGIC;
 		ALUSel		:	IN		STD_LOGIC_VECTOR(3 DOWNTO 0);
-		saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
-		saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-		saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		sel_bhw		: 	IN		STD_LOGIC_VECTOR(2 DOWNTO 0);
+		sel_su		:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0); -- necessario para LB, LH, LBU, LHU
+		sel_lw		:	IN		STD_LOGIC; -- indica se vamos fazer LW		
+		--saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
+		--saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		--saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END datapath;
@@ -32,12 +33,10 @@ ARCHITECTURE comportamento OF datapath IS
 			w_rd	:	IN		STD_LOGIC;
 			-- Porta de leiura
 			rs1		:	OUT		STD_LOGIC_VECTOR(31 DOWNTO 0);
-			add_rs1	:	IN			STD_LOGIC_VECTOR(4 DOWNTO 0);
-			r_rs1		:  IN			STD_LOGIC;
+			add_rs1	:	IN			STD_LOGIC_VECTOR(4 DOWNTO 0);			
 		
 			rs2		:	OUT		STD_LOGIC_VECTOR(31 DOWNTO 0);
-			add_rs2	:	IN			STD_LOGIC_VECTOR(4 DOWNTO 0);
-			r_rs2		:  IN			STD_LOGIC
+			add_rs2	:	IN			STD_LOGIC_VECTOR(4 DOWNTO 0)			
 		);		
 	END COMPONENT;
 	
@@ -93,11 +92,14 @@ ARCHITECTURE comportamento OF datapath IS
 	
 	COMPONENT dmem IS 
 		PORT(
-			address		: IN STD_LOGIC_VECTOR (9 DOWNTO 0);
-			clock			: IN STD_LOGIC  := '1';
-			data			: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
-			wren			: IN STD_LOGIC ;
-			q				: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+			clock 	:  IN 	STD_LOGIC;
+			addr		:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
+			data_w	:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);			
+			sel_bhw  :  IN    STD_LOGIC_VECTOR(2 DOWNTO 0);
+			mem_rw	:	IN		STD_LOGIC;
+			data_r	:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0);
+			sel_su	:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0); -- necessario para LB, LH, LBU, LHU
+			sel_lw	:	IN		STD_LOGIC -- indica se vamos fazer LW		
 		);
 	END COMPONENT;
 	
@@ -119,11 +121,9 @@ BEGIN
 									add_rd	=> instrucao(11 DOWNTO 7),
 									w_rd	 	=>	w_rd,
 									rs1	  	=>	rs1,
-									add_rs1	=> instrucao(19 DOWNTO 15),
-									r_rs1 	=>	r_rs1,
+									add_rs1	=> instrucao(19 DOWNTO 15),									
 									rs2	  	=>	rs2,
-									add_rs2	=> instrucao(24 DOWNTO 20),
-									r_rs2		=>	r_rs2
+									add_rs2	=> instrucao(24 DOWNTO 20)									
 									);
 									
 	alu1:							alu PORT MAP(
@@ -158,23 +158,18 @@ BEGIN
 									sel_mux		=> BSel,
 									out_mux		=> out_mux
 									);
-	
-	extensor_bhw1:				extensor_bhw PORT MAP(
-									data_bhw_in 	=> rs2,
-									sel_bhw			=> instrucao(14 DOWNTO 12),
-									ext_data_bhw	=> ext_data_bhw
+			
+	dmem1:						dmem PORT MAP(
+									clock 	=> clock,
+									addr		=> out_alu,
+									data_w	=> rs2,
+									sel_bhw  => sel_bhw,
+									mem_rw	=> MemRW,
+									data_r	=> q_dmem,
+									sel_su	=> sel_su,
+									sel_lw	=> sel_lw
 									);
-								
-	dmem1:
-									dmem PORT MAP(
-									address		=> out_alu(9 DOWNTO 0),
-									clock			=> clock,
-									data			=> ext_data_bhw,
-									wren			=> MemRW,
-									q				=> q_dmem
-									
-									);
-									
+											
 	mux2:							mux PORT MAP(
 									in1_mux		=> q_dmem,
 									in2_mux		=> out_alu,
@@ -183,8 +178,8 @@ BEGIN
 									);
 	
 	
-	saida_teste <= out_alu;
-	saida_teste_sel_alu <= instrucao(30)&instrucao(14 DOWNTO 12);
-	saida_teste_instrucao <= instrucao;
+	--saida_teste <= out_alu;
+	--saida_teste_sel_alu <= instrucao(30)&instrucao(14 DOWNTO 12);
+	--saida_teste_instrucao <= instrucao;
 	dmem_saida_teste <= q_dmem;
 END ARCHITECTURE;

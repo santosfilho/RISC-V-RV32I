@@ -13,11 +13,9 @@ ENTITY register_file IS
 		-- Porta de leiura
 		rs1		:	OUT		STD_LOGIC_VECTOR(31 DOWNTO 0);
 		add_rs1	:	IN			STD_LOGIC_VECTOR(4 DOWNTO 0);
-		r_rs1		:  IN			STD_LOGIC;
 		
 		rs2		:	OUT		STD_LOGIC_VECTOR(31 DOWNTO 0);
-		add_rs2	:	IN			STD_LOGIC_VECTOR(4 DOWNTO 0);
-		r_rs2		:  IN			STD_LOGIC
+		add_rs2	:	IN			STD_LOGIC_VECTOR(4 DOWNTO 0)	
 	);		
 END register_file;
 
@@ -27,7 +25,7 @@ ARCHITECTURE comportamento OF register_file IS
 	SIGNAL memory : vector_array;
 
 BEGIN
-	PROCESS(clock, w_rd, r_rs1, r_rs2) 
+	PROCESS(clock, w_rd) 
 	BEGIN
 		IF (TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rd)) /= 0) THEN
 			IF (w_rd = '1') THEN
@@ -36,16 +34,12 @@ BEGIN
 				END IF;
 			END IF;
 			
-			IF (r_rs1 = '1') THEN
-				IF (clock'event AND clock='1') THEN
-					rs1 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs1)));
-				END IF;
-			END IF;
-			
-			IF (r_rs2 = '1') THEN
-				IF (clock'event AND clock='1') THEN
-					rs2 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs2)));
-				END IF;
+			IF (clock'event AND clock='1') THEN
+				rs1 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs1)));
+			END IF;		
+					
+			IF (clock'event AND clock='1') THEN
+				rs2 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs2)));
 			END IF;
 		END IF;
 	memory(0) <= conv_std_logic_vector(0,32); --x0 e sempre "00000000000000000000000000000000";
