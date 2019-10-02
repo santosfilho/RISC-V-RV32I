@@ -19,7 +19,8 @@ ENTITY datapath IS
 		--saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
 		--saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		--saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		rd_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END datapath;
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -182,4 +183,5 @@ BEGIN
 	--saida_teste_sel_alu <= instrucao(30)&instrucao(14 DOWNTO 12);
 	--saida_teste_instrucao <= instrucao;
 	dmem_saida_teste <= q_dmem;
+	rd_teste <= wb;
 END ARCHITECTURE;
