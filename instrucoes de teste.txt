@@ -1,3 +1,16 @@
+----------- INSTRUÇÕES TIPO B -------------
+BEQ: if (rs1 == rs2) pc += sext(offset)
+offset(12|10:5)  rs2   rs1		offset(4:1|11) 
+	0000000		00000 00000 000 	00110		1100011
+	001101100011 - 363
+	offset: 000000000110
+BNE
+BLT
+BGE
+BLTU
+BGEU
+
+
 ----------- INSTRUÇÕES TIPO S -------------
 
 offset	rs2   rs1	func3  offset opcode

@@ -18,13 +18,15 @@ ENTITY datapath IS
 		sel_lw		:	IN		STD_LOGIC; -- indica se vamos fazer LW			
 		ASel			: 	IN		STD_LOGIC;
 		BrUn			: 	IN		STD_LOGIC;
+		imm_sel		:	IN 	STD_LOGIC_VECTOR(1 DOWNTO 0);
 		BrEq			:	OUT	STD_LOGIC;
 		BrLT			:	OUT	STD_LOGIC;
 		--saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
 		--saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		--saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		rd_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		rd_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
 END datapath;
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -74,7 +76,8 @@ ARCHITECTURE comportamento OF datapath IS
 	
 	COMPONENT geradorImm IS
 		PORT(
-			in_ger		:	IN		STD_LOGIC_VECTOR(11 DOWNTO 0);
+			in_ger		:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
+			imm_sel		:	IN 	STD_LOGIC_VECTOR(1 DOWNTO 0);
 			out_ger		:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
@@ -165,11 +168,12 @@ BEGIN
 									);
 									
 	geradorImm1:				geradorImm PORT MAP(
-									in_ger		=>	instrucao(31 DOWNTO 20),
+									in_ger		=>	instrucao(31 DOWNTO 0),
+									imm_sel		=> imm_sel,
 									out_ger		=> imm_ext
 									);
 	
-	mux1:							mux PORT MAP(
+	mux_alu_B:					mux PORT MAP(
 									in1_mux		=> rs2,
 									in2_mux		=> imm_ext,
 									sel_mux		=> BSel,
@@ -187,14 +191,14 @@ BEGIN
 									sel_lw	=> sel_lw
 									);
 											
-	mux2:							mux PORT MAP(
+	mux_dmem:					mux PORT MAP(
 									in1_mux		=> q_dmem,
 									in2_mux		=> out_alu,
 									sel_mux		=> WBSel,
 									out_mux		=> wb
 									);
 	
-	mux_pc_out:					mux PORT MAP(
+	mux_alu_A:					mux PORT MAP(
 									in1_mux		=> rs1,
 									in2_mux		=> "0000000000000000000000"& pc_out(11 downto 2),
 									sel_mux		=> ASel,
@@ -214,4 +218,5 @@ BEGIN
 	--saida_teste_instrucao <= instrucao;
 	dmem_saida_teste <= q_dmem;
 	rd_teste <= wb;
+	pc_teste <= pc_out(11 downto 2);
 END ARCHITECTURE;

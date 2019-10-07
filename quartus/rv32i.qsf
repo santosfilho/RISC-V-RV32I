@@ -70,6 +70,6 @@ set_global_assignment -name VHDL_FILE extensor_bhw.vhd
 set_global_assignment -name QIP_FILE data_memory.qip
 set_global_assignment -name VHDL_FILE dmem.vhd
 set_global_assignment -name VHDL_FILE extensor_su.vhd
-set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "C:/Users/josec/dev/RISC-V-RV32I/quartus/rv32i.vwf"
 set_global_assignment -name VHDL_FILE BranchComp.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "C:/Users/josec/dev/RISC-V-RV32I/quartus/rv32i.vwf"

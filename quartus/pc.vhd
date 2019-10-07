@@ -24,7 +24,7 @@ BEGIN
 				if (enable_pc='1') then
 					temp := temp + "100";
 				elsif (load_pc='1') then
-					temp := end8;			
+					temp := end8 + "100";			
 				end if;
 			end if;
 		pc_out <= temp;	
