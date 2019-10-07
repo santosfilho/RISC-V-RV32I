@@ -15,7 +15,11 @@ ENTITY datapath IS
 		ALUSel		:	IN		STD_LOGIC_VECTOR(3 DOWNTO 0);
 		sel_bhw		: 	IN		STD_LOGIC_VECTOR(2 DOWNTO 0);
 		sel_su		:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0); -- necessario para LB, LH, LBU, LHU
-		sel_lw		:	IN		STD_LOGIC; -- indica se vamos fazer LW		
+		sel_lw		:	IN		STD_LOGIC; -- indica se vamos fazer LW			
+		ASel			: 	IN		STD_LOGIC;
+		BrUn			: 	IN		STD_LOGIC;
+		BrEq			:	OUT	STD_LOGIC;
+		BrLT			:	OUT	STD_LOGIC;
 		--saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
 		--saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		--saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -63,7 +67,7 @@ ARCHITECTURE comportamento OF datapath IS
 			reset_pc	: 	IN 	STD_LOGIC;
 			enable_pc: 	IN 	STD_LOGIC;
 			load_pc	: 	IN 	STD_LOGIC;
-			--end8		: 	in 	STD_LOGIC_VECTOR(9 downto 0);
+			end8		: 	in 	STD_LOGIC_VECTOR(11 downto 0);
 			pc_out	: 	out 	STD_LOGIC_VECTOR(11 downto 0) 
 		);
 	END COMPONENT;
@@ -104,6 +108,16 @@ ARCHITECTURE comportamento OF datapath IS
 		);
 	END COMPONENT;
 	
+	COMPONENT BranchComp IS
+	PORT(
+		A			:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
+		B			:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
+		BrUn		:	IN		STD_LOGIC;
+		BrEq		:	OUT	STD_LOGIC;
+		BrLT		:	OUT	STD_LOGIC
+	);
+	END COMPONENT;
+	
 	SIGNAL rs1				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL rs2				:	STD_LOGIC_VECTOR(31 DOWNTO 0);	
 	SIGNAL out_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -114,7 +128,8 @@ ARCHITECTURE comportamento OF datapath IS
 	SIGNAL ext_data_bhw	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL q_dmem			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL wb				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
-		
+	SIGNAL mux_pc_out_out:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+			
 BEGIN 
 	register_file1: 			register_file PORT MAP(
 								   clock 	=>	clock,
@@ -128,7 +143,7 @@ BEGIN
 									);
 									
 	alu1:							alu PORT MAP(
-									in1_alu => rs1,
+									in1_alu => mux_pc_out_out,
 									in2_alu => out_mux,
 									sel_alu => ALUSel,--instrucao(30)&instrucao(14 DOWNTO 12),
 									out_alu => out_alu
@@ -145,6 +160,7 @@ BEGIN
 									reset_pc 	=> reset,
 									enable_pc 	=> enable_pc,
 									load_pc		=> load_pc,
+									end8			=> out_alu(11 DOWNTO 0),
 									pc_out		=> pc_out
 									);
 									
@@ -178,7 +194,21 @@ BEGIN
 									out_mux		=> wb
 									);
 	
-	
+	mux_pc_out:					mux PORT MAP(
+									in1_mux		=> rs1,
+									in2_mux		=> "0000000000000000000000"& pc_out(11 downto 2),
+									sel_mux		=> ASel,
+									out_mux		=> mux_pc_out_out
+									);
+
+	BranchComp1:					BranchComp PORT MAP(
+									A		=>	rs1,
+									B		=>	rs2,
+									BrUn	=>	BrUn,
+									BrEq	=> BrEq,
+									BrLT	=> BrLT
+									);
+									
 	--saida_teste <= out_alu;
 	--saida_teste_sel_alu <= instrucao(30)&instrucao(14 DOWNTO 12);
 	--saida_teste_instrucao <= instrucao;
