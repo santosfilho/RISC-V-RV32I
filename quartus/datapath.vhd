@@ -14,8 +14,7 @@ ENTITY datapath IS
 		WBSel			: 	IN		STD_LOGIC;
 		ALUSel		:	IN		STD_LOGIC_VECTOR(3 DOWNTO 0);
 		sel_bhw		: 	IN		STD_LOGIC_VECTOR(2 DOWNTO 0);
-		sel_su		:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0); -- necessario para LB, LH, LBU, LHU
-		sel_lw		:	IN		STD_LOGIC; -- indica se vamos fazer LW			
+		sel_su		:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0); -- necessario para LB, LH, LBU, LHU			
 		ASel			: 	IN		STD_LOGIC;
 		BrUn			: 	IN		STD_LOGIC;
 		imm_sel		:	IN 	STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -24,6 +23,10 @@ ENTITY datapath IS
 		--saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
 		--saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		--saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		alu_teste : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		aluA		: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);	
+		aluB	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		instrucao_teste : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		rd_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
@@ -74,6 +77,13 @@ ARCHITECTURE comportamento OF datapath IS
 		);
 	END COMPONENT;
 	
+	COMPONENT somador IS
+		PORT( 
+			end8		   : 	in 	STD_LOGIC_VECTOR(11 downto 0);
+			somador_out	: 	out 	STD_LOGIC_VECTOR(11 downto 0)
+		);
+	END COMPONENT;
+	
 	COMPONENT geradorImm IS
 		PORT(
 			in_ger		:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -106,8 +116,7 @@ ARCHITECTURE comportamento OF datapath IS
 			sel_bhw  :  IN    STD_LOGIC_VECTOR(2 DOWNTO 0);
 			mem_rw	:	IN		STD_LOGIC;
 			data_r	:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0);
-			sel_su	:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0); -- necessario para LB, LH, LBU, LHU
-			sel_lw	:	IN		STD_LOGIC -- indica se vamos fazer LW		
+			sel_su	:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0) -- necessario para LB, LH, LBU, LHU			
 		);
 	END COMPONENT;
 	
@@ -157,6 +166,8 @@ BEGIN
 									clock	  => clock,
 									q		  => instrucao
 									);
+									
+									
 	
 	pc1:							pc	PORT MAP(
 									clock 		=> clock,
@@ -167,6 +178,11 @@ BEGIN
 									pc_out		=> pc_out
 									);
 									
+									
+	somador4:					somador PORT MAP (
+									
+									);
+	
 	geradorImm1:				geradorImm PORT MAP(
 									in_ger		=>	instrucao(31 DOWNTO 0),
 									imm_sel		=> imm_sel,
@@ -187,8 +203,7 @@ BEGIN
 									sel_bhw  => sel_bhw,
 									mem_rw	=> MemRW,
 									data_r	=> q_dmem,
-									sel_su	=> sel_su,
-									sel_lw	=> sel_lw
+									sel_su	=> sel_su									
 									);
 											
 	mux_dmem:					mux PORT MAP(
@@ -213,10 +228,14 @@ BEGIN
 									BrLT	=> BrLT
 									);
 									
-	--saida_teste <= out_alu;
+	
 	--saida_teste_sel_alu <= instrucao(30)&instrucao(14 DOWNTO 12);
 	--saida_teste_instrucao <= instrucao;
 	dmem_saida_teste <= q_dmem;
 	rd_teste <= wb;
 	pc_teste <= pc_out(11 downto 2);
+	alu_teste <= out_alu;
+	aluA <= mux_pc_out_out;
+	aluB <= out_mux;
+	instrucao_teste <= instrucao;
 END ARCHITECTURE;

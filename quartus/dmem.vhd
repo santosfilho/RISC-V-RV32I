@@ -9,8 +9,7 @@ ENTITY dmem IS
 		sel_bhw  :  IN    STD_LOGIC_VECTOR(2 DOWNTO 0);
 		mem_rw	:	IN		STD_LOGIC;
 		data_r	:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0);		
-		sel_su	:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0); -- necessario para LB, LH, LBU, LHU
-		sel_lw	:	IN		STD_LOGIC -- indica se vamos fazer LW
+		sel_su	:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0) -- necessario para LB, LH, LBU, LHU		
 	);
 END dmem;
 
@@ -43,15 +42,6 @@ ARCHITECTURE comportamento OF dmem IS
 		);
 	END COMPONENT;
 	
-	COMPONENT mux IS
-		PORT(
-			in1_mux, in2_mux		:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
-			sel_mux					:	IN		STD_LOGIC;
-			out_mux					:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0)
-		);
-	END COMPONENT;
-	
-	
 	SIGNAL ext_data_bhw				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL out_data_memory			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL out_ext_su					:	STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -75,13 +65,7 @@ ARCHITECTURE comportamento OF dmem IS
 		extensor_su1:		extensor_su PORT MAP(
 								in_ext_su	=> out_data_memory,	
 								sel_su		=> sel_su,	
-								out_ext_su	=> out_ext_su
+								out_ext_su	=> data_r
 								);
 								
-		mux1:					mux PORT MAP(
-								in1_mux 	=>	out_ext_su,
-								in2_mux 	=> out_data_memory,
-								sel_mux 	=>	sel_lw,	
-								out_mux	=>	data_r				
-								);
 END comportamento;

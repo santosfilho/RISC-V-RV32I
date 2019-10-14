@@ -22,9 +22,9 @@ BEGIN
 				temp := "000000000000";
 			elsif (clock'event and clock='1') then
 				if (enable_pc='1') then
-					temp := temp + "100";
+					temp := temp + '1';			
 				elsif (load_pc='1') then
-					temp := end8 + "100";			
+					temp := end8;			
 				end if;
 			end if;
 		pc_out <= temp;	

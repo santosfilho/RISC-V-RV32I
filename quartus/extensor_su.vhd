@@ -28,7 +28,7 @@ ARCHITECTURE comportamento OF extensor_su IS
 							out_ext_su <= "1111111111111111" & in_ext_su(15 DOWNTO 0);
 						END IF;
 						
-					WHEN "10" =>  -- LBU/LHU
+					WHEN "10" =>  -- LBU/LHU/LW
 						out_ext_su <= in_ext_su;
 						
 					WHEN OTHERS => NULL;
