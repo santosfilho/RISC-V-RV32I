@@ -52,16 +52,6 @@ SIGNAL("enable_pc")
 	PARENT = "";
 }
 
-SIGNAL("load_pc")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "";
-}
-
 SIGNAL("reset")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
@@ -2392,6 +2382,16 @@ SIGNAL("instrucao_teste[0]")
 	PARENT = "instrucao_teste";
 }
 
+SIGNAL("PCSel")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
 TRANSITION_LIST("clock")
 {
 	NODE
@@ -2411,20 +2411,7 @@ TRANSITION_LIST("enable_pc")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 25.0;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 665.0;
-	}
-}
-
-TRANSITION_LIST("load_pc")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 25.0;
-		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 665.0;
+		LEVEL 1 FOR 700.0;
 	}
 }
 
@@ -2451,9 +2438,9 @@ TRANSITION_LIST("BSel")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 25.0;
+		LEVEL 0 FOR 30.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 665.0;
+		LEVEL 0 FOR 660.0;
 	}
 }
 
@@ -3272,9 +3259,9 @@ TRANSITION_LIST("ASel")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 25.0;
+		LEVEL 0 FOR 30.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 665.0;
+		LEVEL 0 FOR 660.0;
 	}
 }
 
@@ -4430,6 +4417,17 @@ TRANSITION_LIST("instrucao_teste[0]")
 	}
 }
 
+TRANSITION_LIST("PCSel")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 660.0;
+	}
+}
+
 DISPLAY_LINE
 {
 	CHANNEL = "reset";
@@ -4459,7 +4457,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "load_pc";
+	CHANNEL = "PCSel";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 3;

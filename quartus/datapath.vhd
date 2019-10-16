@@ -8,7 +8,7 @@ ENTITY datapath IS
 		reset			:	IN		STD_LOGIC;
 		w_rd			:	IN		STD_LOGIC;		
 		enable_pc	:  IN		STD_LOGIC;
-		load_pc		:  IN		STD_LOGIC;
+		--load_pc		:  IN		STD_LOGIC;
 		BSel			:	IN		STD_LOGIC;
 		MemRW			: 	IN		STD_LOGIC;
 		WBSel			: 	IN		STD_LOGIC;
@@ -18,15 +18,16 @@ ENTITY datapath IS
 		ASel			: 	IN		STD_LOGIC;
 		BrUn			: 	IN		STD_LOGIC;
 		imm_sel		:	IN 	STD_LOGIC_VECTOR(1 DOWNTO 0);
+		PCSel			: 	IN		STD_LOGIC;
 		BrEq			:	OUT	STD_LOGIC;
 		BrLT			:	OUT	STD_LOGIC;
 		--saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
 		--saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		--saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		alu_teste : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		aluA		: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);	
-		aluB	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		instrucao_teste : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		alu_teste	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		aluA			: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);	
+		aluB			: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		instrucao_teste 	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		rd_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
@@ -66,12 +67,20 @@ ARCHITECTURE comportamento OF datapath IS
 		);
 	END COMPONENT;
 	
+	COMPONENT mux_pc_in IS
+		PORT(
+			in1_mux, in2_mux		:	IN		STD_LOGIC_VECTOR(11 DOWNTO 0);
+			sel_mux					:	IN		STD_LOGIC;
+			out_mux					:	OUT 	STD_LOGIC_VECTOR(11 DOWNTO 0)
+		);
+	END COMPONENT;
+	
 	COMPONENT pc IS
 		PORT( 
 			clock		: 	IN 	STD_LOGIC;
 			reset_pc	: 	IN 	STD_LOGIC;
 			enable_pc: 	IN 	STD_LOGIC;
-			load_pc	: 	IN 	STD_LOGIC;
+			--load_pc	: 	IN 	STD_LOGIC;
 			end8		: 	in 	STD_LOGIC_VECTOR(11 downto 0);
 			pc_out	: 	out 	STD_LOGIC_VECTOR(11 downto 0) 
 		);
@@ -141,6 +150,9 @@ ARCHITECTURE comportamento OF datapath IS
 	SIGNAL q_dmem			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL wb				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL mux_pc_out_out:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL somador_out   :  STD_LOGIC_VECTOR(11 DOWNTO 0);
+	SIGNAL out_mux_pc_sel:  STD_LOGIC_VECTOR(11 DOWNTO 0);
+	
 			
 BEGIN 
 	register_file1: 			register_file PORT MAP(
@@ -167,20 +179,26 @@ BEGIN
 									q		  => instrucao
 									);
 									
+	mux_pc_in1:					mux_pc_in PORT MAP(
+									in1_mux		=> somador_out,
+									in2_mux		=> out_alu(11 DOWNTO 0),
+									sel_mux		=> PCSel,
+									out_mux		=> out_mux_pc_sel
+									);
 									
 	
 	pc1:							pc	PORT MAP(
 									clock 		=> clock,
 									reset_pc 	=> reset,
 									enable_pc 	=> enable_pc,
-									load_pc		=> load_pc,
-									end8			=> out_alu(11 DOWNTO 0),
+									--load_pc		=> load_pc,
+									end8			=> out_mux_pc_sel,
 									pc_out		=> pc_out
 									);
 									
-									
 	somador4:					somador PORT MAP (
-									
+									end8			=> pc_out,
+									somador_out => somador_out
 									);
 	
 	geradorImm1:				geradorImm PORT MAP(
