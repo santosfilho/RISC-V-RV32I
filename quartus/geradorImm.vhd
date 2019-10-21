@@ -45,7 +45,8 @@ ARCHITECTURE comportamento OF geradorImm IS
 														& in_ger(20)
 														& in_ger(30 DOWNTO 21)
 														& '0';
-				WHEN OTHERS => NULL;
+				WHEN "11" => --AUIPC
+					out_ger <= in_ger(31 DOWNTO 12) & "000000000000";
 		END CASE;		
 	END PROCESS;
 END comportamento;
