@@ -11,7 +11,7 @@ ENTITY datapath IS
 		--load_pc		:  IN		STD_LOGIC;
 		BSel			:	IN		STD_LOGIC;
 		MemRW			: 	IN		STD_LOGIC;
-		WBSel			: 	IN		STD_LOGIC;
+		WBSel			: 	IN		STD_LOGIC_VECTOR(1 DOWNTO 0);
 		ALUSel		:	IN		STD_LOGIC_VECTOR(3 DOWNTO 0);
 		sel_bhw		: 	IN		STD_LOGIC_VECTOR(2 DOWNTO 0);
 		sel_su		:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0); -- necessario para LB, LH, LBU, LHU			
@@ -139,6 +139,14 @@ ARCHITECTURE comportamento OF datapath IS
 	);
 	END COMPONENT;
 	
+	COMPONENT mux4 IS
+	PORT(
+		in0_mux, in1_mux, in2_mux, in3_mux		:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
+		sel_mux											:	IN		STD_LOGIC_VECTOR(1 DOWNTO 0);
+		out_mux											:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0)
+	);
+	END COMPONENT;
+	
 	SIGNAL rs1				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL rs2				:	STD_LOGIC_VECTOR(31 DOWNTO 0);	
 	SIGNAL out_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -224,9 +232,11 @@ BEGIN
 									sel_su	=> sel_su									
 									);
 											
-	mux_dmem:					mux PORT MAP(
-									in1_mux		=> q_dmem,
-									in2_mux		=> out_alu,
+	mux_dmem:					mux4 PORT MAP(
+									in0_mux		=> q_dmem,
+									in1_mux		=> out_alu,
+									in2_mux		=> "00000000000000000000"&somador_out, -- PC+4
+									in3_mux		=> instrucao(31 DOWNTO 12)&"000000000000", -- LUI
 									sel_mux		=> WBSel,
 									out_mux		=> wb
 									);
@@ -238,7 +248,7 @@ BEGIN
 									out_mux		=> mux_pc_out_out
 									);
 
-	BranchComp1:					BranchComp PORT MAP(
+	BranchComp1:				BranchComp PORT MAP(
 									A		=>	rs1,
 									B		=>	rs2,
 									BrUn	=>	BrUn,
@@ -246,6 +256,8 @@ BEGIN
 									BrLT	=> BrLT
 									);
 									
+	
+
 	
 	--saida_teste_sel_alu <= instrucao(30)&instrucao(14 DOWNTO 12);
 	--saida_teste_instrucao <= instrucao;
