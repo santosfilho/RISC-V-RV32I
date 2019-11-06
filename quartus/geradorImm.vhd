@@ -34,7 +34,7 @@ ARCHITECTURE comportamento OF geradorImm IS
 														& in_ger(11 DOWNTO 8) 
 														& '0';
 															
-				WHEN "10" => --tipo J
+				WHEN "10" => --tipo JAL
 					IF(in_ger(31) = '0') THEN
 						out_ger(31 DOWNTO 21) <= "00000000000";
 					ELSE 
