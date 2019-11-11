@@ -1,8 +1,11 @@
 ----------- INSTRUÇÕES TIPO J -------------
-JAL  -> x[rd] = pc+4; p += sext(offset)
+JAL 
+	-> x[rd] = pc+4; p += sext(offset)
 	0 0000001000 0 00000000 00100 1101111
 	00000111000000000000001001101111 -> 700 026F
-JALS
+JALR
+	-> pc = (x[rs1] + sext(offset))&~1;
+
 
 ----------- INSTRUÇÕES TIPO L -------------
 LUI  -> x[rd] = sex(imm[31:12] << 12)
