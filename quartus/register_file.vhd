@@ -27,23 +27,21 @@ ARCHITECTURE comportamento OF register_file IS
 BEGIN
 	PROCESS(clock, w_rd) 
 	BEGIN
-		IF (TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rd)) /= 0) THEN
-			IF (w_rd = '1') THEN
-				IF (clock'event AND clock='1') THEN
-					memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rd))) <= rd;
-				END IF;
-			END IF;
-			
+		IF (w_rd = '1') THEN
 			IF (clock'event AND clock='1') THEN
-				rs1 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs1)));
-			END IF;		
-					
-			IF (clock'event AND clock='1') THEN
-				rs2 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs2)));
+				memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rd))) <= rd;
 			END IF;
 		END IF;
+		
+		IF (clock'event AND clock='1') THEN
+			rs1 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs1)));
+		END IF;		
+				
+		IF (clock'event AND clock='1') THEN
+			rs2 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs2)));
+		END IF;
 	memory(0) <= conv_std_logic_vector(0,32); --x0 e sempre "00000000000000000000000000000000";
-	memory(1) <= conv_std_logic_vector(2,32); 
+	memory(1) <= conv_std_logic_vector(6,32); 
 	memory(2) <= conv_std_logic_vector(3,32);
 	--memory(1) <= conv_std_logic_vector(6,32);
 	--memory(1) <= "11111111111111111111111111111000";-- -8 conv_std_logic_vector(5,32);

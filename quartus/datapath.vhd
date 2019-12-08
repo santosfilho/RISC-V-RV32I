@@ -21,13 +21,13 @@ ENTITY datapath IS
 		PCSel			: 	IN		STD_LOGIC;
 		BrEq			:	OUT	STD_LOGIC;
 		BrLT			:	OUT	STD_LOGIC;
+		instrucao 	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		--saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
 		--saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		--saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		alu_teste	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		aluA			: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);	
 		aluB			: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		instrucao_teste 	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		rd_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
@@ -59,19 +59,19 @@ ARCHITECTURE comportamento OF datapath IS
 		);
 	END COMPONENT;
 	
-	COMPONENT progam_memory IS
+	COMPONENT progam_memory_0 IS
 		PORT(
-			address		: IN STD_LOGIC_VECTOR (9 DOWNTO 0);
-			clock			: IN STD_LOGIC  := '1';
+			address		: IN STD_LOGIC_VECTOR (31 DOWNTO 0);
+			clock			: IN STD_LOGIC;
 			q				: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
 		);
 	END COMPONENT;
 	
 	COMPONENT mux_pc_in IS
 		PORT(
-			in1_mux, in2_mux		:	IN		STD_LOGIC_VECTOR(11 DOWNTO 0);
+			in1_mux, in2_mux		:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
 			sel_mux					:	IN		STD_LOGIC;
-			out_mux					:	OUT 	STD_LOGIC_VECTOR(11 DOWNTO 0)
+			out_mux					:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
 	
@@ -81,15 +81,15 @@ ARCHITECTURE comportamento OF datapath IS
 			reset_pc	: 	IN 	STD_LOGIC;
 			enable_pc: 	IN 	STD_LOGIC;
 			--load_pc	: 	IN 	STD_LOGIC;
-			end8		: 	in 	STD_LOGIC_VECTOR(11 downto 0);
-			pc_out	: 	out 	STD_LOGIC_VECTOR(11 downto 0) 
+			end8		: 	in 	STD_LOGIC_VECTOR(31 downto 0);
+			pc_out	: 	out 	STD_LOGIC_VECTOR(31 downto 0) 
 		);
 	END COMPONENT;
 	
 	COMPONENT somador IS
 		PORT( 
-			end8		   : 	in 	STD_LOGIC_VECTOR(11 downto 0);
-			somador_out	: 	out 	STD_LOGIC_VECTOR(11 downto 0)
+			end8		   : 	in 	STD_LOGIC_VECTOR(31 downto 0);
+			somador_out	: 	out 	STD_LOGIC_VECTOR(31 downto 0)
 		);
 	END COMPONENT;
 	
@@ -150,28 +150,28 @@ ARCHITECTURE comportamento OF datapath IS
 	SIGNAL rs1				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL rs2				:	STD_LOGIC_VECTOR(31 DOWNTO 0);	
 	SIGNAL out_alu			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL instrucao		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL pc_out			:  STD_LOGIC_VECTOR(11 DOWNTO 0);
+	SIGNAL instrucao_signal		:	STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL pc_out			:  STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL imm_ext			: 	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL out_mux			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL ext_data_bhw	:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL q_dmem			:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL wb				:	STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL mux_pc_out_out:	STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SIGNAL somador_out   :  STD_LOGIC_VECTOR(11 DOWNTO 0);
-	SIGNAL out_mux_pc_sel:  STD_LOGIC_VECTOR(11 DOWNTO 0);
+	SIGNAL somador_out   :  STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL out_mux_pc_sel:  STD_LOGIC_VECTOR(31 DOWNTO 0);
 	
 			
 BEGIN 
 	register_file1: 			register_file PORT MAP(
 								   clock 	=>	clock,
 									rd  		=>	wb,
-									add_rd	=> instrucao(11 DOWNTO 7),
+									add_rd	=> instrucao_signal(11 DOWNTO 7),
 									w_rd	 	=>	w_rd,
 									rs1	  	=>	rs1,
-									add_rs1	=> instrucao(19 DOWNTO 15),									
+									add_rs1	=> instrucao_signal(19 DOWNTO 15),									
 									rs2	  	=>	rs2,
-									add_rs2	=> instrucao(24 DOWNTO 20)									
+									add_rs2	=> instrucao_signal(24 DOWNTO 20)									
 									);
 									
 	alu1:							alu PORT MAP(
@@ -181,15 +181,15 @@ BEGIN
 									out_alu => out_alu
 									);
 									
-	program_memory1:			progam_memory PORT MAP(
-									address => pc_out(11 downto 2),
+	program_memory1:			progam_memory_0 PORT MAP(
+									address => pc_out,
 									clock	  => clock,
-									q		  => instrucao
+									q		  => instrucao_signal
 									);
 									
 	mux_pc_in1:					mux_pc_in PORT MAP(
 									in1_mux		=> somador_out,
-									in2_mux		=> out_alu(11 DOWNTO 0),
+									in2_mux		=> out_alu,
 									sel_mux		=> PCSel,
 									out_mux		=> out_mux_pc_sel
 									);
@@ -210,7 +210,7 @@ BEGIN
 									);
 	
 	geradorImm1:				geradorImm PORT MAP(
-									in_ger		=>	instrucao(31 DOWNTO 0),
+									in_ger		=>	instrucao_signal(31 DOWNTO 0),
 									imm_sel		=> imm_sel,
 									out_ger		=> imm_ext
 									);
@@ -235,8 +235,8 @@ BEGIN
 	mux_dmem:					mux4 PORT MAP(
 									in0_mux		=> q_dmem,
 									in1_mux		=> out_alu,
-									in2_mux		=> "00000000000000000000"&somador_out, -- PC+4
-									in3_mux		=> instrucao(31 DOWNTO 12)&"000000000000", -- LUI
+									in2_mux		=> somador_out, -- PC+4
+									in3_mux		=> instrucao_signal(31 DOWNTO 12)&"000000000000", -- LUI
 									sel_mux		=> WBSel,
 									out_mux		=> wb
 									);
@@ -256,9 +256,6 @@ BEGIN
 									BrLT	=> BrLT
 									);
 									
-	
-
-	
 	--saida_teste_sel_alu <= instrucao(30)&instrucao(14 DOWNTO 12);
 	--saida_teste_instrucao <= instrucao;
 	dmem_saida_teste <= q_dmem;
@@ -267,5 +264,5 @@ BEGIN
 	alu_teste <= out_alu;
 	aluA <= mux_pc_out_out;
 	aluB <= out_mux;
-	instrucao_teste <= instrucao;
+	instrucao <= instrucao_signal;
 END ARCHITECTURE;
