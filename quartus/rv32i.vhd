@@ -34,7 +34,7 @@ ARCHITECTURE comportamento OF rv32i IS
 			sel_su		:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0);	
 			ASel			: 	IN		STD_LOGIC;
 			BrUn			: 	IN		STD_LOGIC;
-			imm_sel		:	IN 	STD_LOGIC_VECTOR(1 DOWNTO 0);
+			imm_sel		:	IN 	STD_LOGIC_VECTOR(2 DOWNTO 0);
 			PCSel			: 	IN		STD_LOGIC;
 			BrEq			:	OUT	STD_LOGIC;
 			BrLT			:	OUT	STD_LOGIC;
@@ -63,7 +63,7 @@ ARCHITECTURE comportamento OF rv32i IS
 			sel_su		: 	OUT 	STD_LOGIC_VECTOR(1 DOWNTO 0);		
 			ASel			: 	OUT	STD_LOGIC;
 			BrUn			: 	OUT	STD_LOGIC;
-			imm_sel		:	OUT 	STD_LOGIC_VECTOR(1 DOWNTO 0);
+			imm_sel		:	OUT 	STD_LOGIC_VECTOR(2 DOWNTO 0);
 			PCSel			: 	OUT	STD_LOGIC;
 			BrEq			:	IN		STD_LOGIC;
 			BrLT			:	IN		STD_LOGIC
@@ -81,7 +81,7 @@ ARCHITECTURE comportamento OF rv32i IS
 	SIGNAL sel_su_sinal	: STD_LOGIC_VECTOR(1 DOWNTO 0);
 	SIGNAL ASel_sinal		: STD_LOGIC;
 	SIGNAL BrUn_sinal	: STD_LOGIC;
-	SIGNAL imm_sel_sinal	: STD_LOGIC_VECTOR(1 DOWNTO 0);
+	SIGNAL imm_sel_sinal	: STD_LOGIC_VECTOR(2 DOWNTO 0);
 	SIGNAL PCSel_sinal : STD_LOGIC;
 	SIGNAL BrEq_sinal	: STD_LOGIC;
 	SIGNAL BrLT_sinal	: STD_LOGIC;
@@ -133,4 +133,5 @@ ARCHITECTURE comportamento OF rv32i IS
 			BrLT			=> BrLT_sinal
 		);
 		
+		instrucao_teste <= instrucao_sinal;
 END comportamento;

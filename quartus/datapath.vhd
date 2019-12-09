@@ -17,7 +17,7 @@ ENTITY datapath IS
 		sel_su		:  IN 	STD_LOGIC_VECTOR(1 DOWNTO 0); -- necessario para LB, LH, LBU, LHU			
 		ASel			: 	IN		STD_LOGIC;
 		BrUn			: 	IN		STD_LOGIC;
-		imm_sel		:	IN 	STD_LOGIC_VECTOR(1 DOWNTO 0);
+		imm_sel		:	IN 	STD_LOGIC_VECTOR(2 DOWNTO 0);
 		PCSel			: 	IN		STD_LOGIC;
 		BrEq			:	OUT	STD_LOGIC;
 		BrLT			:	OUT	STD_LOGIC;
@@ -96,7 +96,7 @@ ARCHITECTURE comportamento OF datapath IS
 	COMPONENT geradorImm IS
 		PORT(
 			in_ger		:	IN		STD_LOGIC_VECTOR(31 DOWNTO 0);
-			imm_sel		:	IN 	STD_LOGIC_VECTOR(1 DOWNTO 0);
+			imm_sel		:	IN 	STD_LOGIC_VECTOR(2 DOWNTO 0);
 			out_ger		:	OUT 	STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
