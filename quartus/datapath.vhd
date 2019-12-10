@@ -22,6 +22,7 @@ ENTITY datapath IS
 		BrEq			:	OUT	STD_LOGIC;
 		BrLT			:	OUT	STD_LOGIC;
 		instrucao 	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		-- SAIDAS PARA TESTES
 		--saida_teste :  OUT	STD_LOGIC_VECTOR(31 DOWNTO 0);
 		--saida_teste_sel_alu : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		--saida_teste_instrucao : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -30,7 +31,8 @@ ENTITY datapath IS
 		aluB			: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		rd_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+		pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+		pc4_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END datapath;
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -265,4 +267,5 @@ BEGIN
 	aluA <= mux_pc_out_out;
 	aluB <= out_mux;
 	instrucao <= instrucao_signal;
+	pc4_teste <= pc_out;
 END ARCHITECTURE;

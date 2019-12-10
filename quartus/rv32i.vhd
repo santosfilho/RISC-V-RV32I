@@ -15,7 +15,8 @@ ENTITY rv32i IS
 		instrucao_teste 	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		rd_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-		pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+		pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+		pc4_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);		
 END rv32i;
 
@@ -45,7 +46,8 @@ ARCHITECTURE comportamento OF rv32i IS
 			aluB			: 	OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 			dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 			rd_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-			pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+			pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+			pc4_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 		);
 	END COMPONENT;
 	
@@ -111,7 +113,8 @@ ARCHITECTURE comportamento OF rv32i IS
 			aluB			=> aluB,
 			dmem_saida_teste => dmem_saida_teste,
 			rd_teste 	=> rd_teste,
-			pc_teste 	=> pc_teste
+			pc_teste 	=> pc_teste,
+			pc4_teste	=> pc4_teste
 		);
 		
 		controlador_0 : controlador PORT MAP (

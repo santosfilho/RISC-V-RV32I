@@ -31,6 +31,18 @@ ARCHITECTURE comportamento OF controlador IS
 		BEGIN
 		--aritimetica--
 			CASE instrucao(6 DOWNTO 0) IS
+				WHEN "0000000" => -- NOP improvisado
+						w_rd <= '0';
+						ASel <= '-';
+						BSel <= '-';
+						WBSel	<= "--";												
+						MemRW	<= '0';
+						sel_bhw <= "---";
+						sel_su <= "--";						
+						BrUn <= '-';
+						imm_sel <= "---";
+						PCSel <= '0';
+						ALUSel <= "----";
 				WHEN "0110011" => -- tipo R
 						w_rd <= '1';
 						ASel <= '0';
@@ -136,7 +148,7 @@ ARCHITECTURE comportamento OF controlador IS
 							END IF;
 						WHEN OTHERS => NULL;
 					END CASE;
-				WHEN "0000011" => -- Tipo L
+				WHEN "0000011" => -- Tipo Load
 					w_rd <= '1';
 					ASel <= '0';
 					BSel <= '1';
