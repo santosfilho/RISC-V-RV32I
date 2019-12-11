@@ -16,7 +16,8 @@ ENTITY rv32i IS
 		dmem_saida_teste  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		rd_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 		pc_teste  	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
-		pc4_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+		pc4_teste  	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+		ASel_teste	: 	OUT	STD_LOGIC
 	);		
 END rv32i;
 
@@ -137,4 +138,5 @@ ARCHITECTURE comportamento OF rv32i IS
 		);
 		
 		instrucao_teste <= instrucao_sinal;
+		ASel_teste <= ASel_sinal;
 END comportamento;

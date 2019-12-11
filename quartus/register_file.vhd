@@ -41,11 +41,11 @@ BEGIN
 			rs2 <= memory(TO_INTEGER(IEEE.NUMERIC_STD.UNSIGNED(add_rs2)));
 		END IF;
 	memory(0) <= conv_std_logic_vector(0,32); --x0 e sempre "00000000000000000000000000000000";
-	memory(1) <= conv_std_logic_vector(6,32); 
-	memory(2) <= conv_std_logic_vector(10,32);
+	--memory(1) <= conv_std_logic_vector(6,32); 
+	--memory(2) <= conv_std_logic_vector(10,32);
 	--memory(1) <= conv_std_logic_vector(6,32);
 	--memory(1) <= "11111111111111111111111111111000";-- -8 conv_std_logic_vector(5,32);
-	memory(3) <= conv_std_logic_vector(25,32);--"00000000000000000000000011111111";-- -4  conv_std_logic_vector(2,32);
-	memory(4) <= "00000000000000001111111111111111";
+	--memory(3) <= conv_std_logic_vector(25,32);--"00000000000000000000000011111111";-- -4  conv_std_logic_vector(2,32);
+	--memory(4) <= "00000000000000001111111111111111";
 	END PROCESS;
 END comportamento;

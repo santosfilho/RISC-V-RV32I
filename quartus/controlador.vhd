@@ -33,7 +33,7 @@ ARCHITECTURE comportamento OF controlador IS
 			CASE instrucao(6 DOWNTO 0) IS
 				WHEN "0000000" => -- NOP improvisado
 						w_rd <= '0';
-						ASel <= '-';
+						ASel <= '-'; 
 						BSel <= '-';
 						WBSel	<= "--";												
 						MemRW	<= '0';
