@@ -1,0 +1,197 @@
+----------- INSTRUÇÕES TIPO U -------------
+LUI	
+	-> x[rd] = sext(immediate[31:12] << 12)
+	
+	immediate[31:12]		rd[11:7]	opcode[6:0]
+	00000000000000010011	00101		0110111
+	00000000000000010011001010110111 -> 132B7
+
+AUIPC
+	-> x[rd] = pc + sext(immmediate[31:12] << 12)	
+	
+	immediate[31:12]		rd[11:7]	opcode[6:0]
+	00000000000000010011	00101		0010111
+	00000000000000010011001010010111 -> 13297
+----------- INSTRUÇÕES TIPO J -------------
+JAL 
+	-> x[rd] = pc+4; pc += sext(offset)
+	
+	0 0000001000 0 00000000 00100 1101111
+	00000001000000000000001001101111 -> 100026F
+JALR
+	-> pc = (x[rs1] + sext(offset))&~1;
+
+	offset		  rs1        rd
+	000000010000 00011 000 00100 1100111 
+	00000001000000011000001001100111 -> 01018267
+
+----------- INSTRUÇÕES TIPO L -------------
+LUI  -> x[rd] = sex(imm[31:12] << 12)
+* << significa deslocamento
+000000000000001111 00010 0110111 -->> F137
+
+AUIPC ->
+000000000000001111 00010 0010111 -->> F117
+
+----------- INSTRUÇÕES TIPO B -------------
+BEQ: if (rs1 == rs2) pc += sext(offset)
+offset(12|10:5)  rs2   rs1		offset(4:1|11) 
+	0000000		00000 00000 000 	11100		1100011
+	111001100011 - E63
+	offset: 000000011100
+BNE
+BLT
+BGE
+BLTU
+BGEU
+
+----------- INSTRUÇÕES TIPO S -------------
+
+offset	rs2   rs1	func3  offset opcode
+0000000 00000 00010 000    00011  0000000
+
+SB
+- Armazena o byte menos significativo no registrador x[rs2] para a memória no endereço x[rs1]+ sign-extend(deslocamento).
+- M[x[rs1] + sext(offset)] = x[rs2][7:0]
+
+0000000 00010 00001 000 00010 0100011 -> 20 8123
+ALUSel=>0000
+
+SH -> Armazena os dois bytes menos significativo em rs2
+0000000 00010 00001 001 00010 0100011 -> 20 9123
+ALUSel=>0000
+
+SW -> M[x[rs1]+sext(offset)] = x[rs2][31:0]
+0000000 00010 00001 010 00000 0100011 -> 20 A023
+0000000 00011 00001 010 00001 0100011 -> 30 A0A3
+0000000 00100 00001 010 00010 0100011 -> 40 A123
+ALUSel=>0000
+
+
+----------- INSTRUÇÕES TIPO L -------------
+
+imm			 rs1   func3  rd 	 opcode
+000000000000 00000 000    00000  0000011
+
+LB x[rd] = sext(M[x[rs1] + sext(offset)][7:0])
+	000000000011 00000 000 00101 0000011 : 30 0283
+
+LH x[rd] = sext(M[xrs1 + sext(offset)][15:0]) -> 
+	000000000100 00000 001 00111 0000011 : 40 1383
+
+LW x[rd] = sext(M[x[rs1] + sext(offset)][31:0]) -> 
+	000000000010 00000 010 01001 0000011 : 20 2483
+
+LBU x[rd] = M[x[rs1] + sext(offset)][7:0]
+	000000000011 00000 100 00110 0000011 : 30 4303
+
+LHU x[rd] = M[x[rs1] + sext(offset)][15:0]
+	000000000100 00000 101 01000 0000011 : 40 5403
+
+
+----------- INSTRUÇÕES TIPO I -------------
+* Serão passados 32 bits para a ALU, chamaremos de instALU.
+* Os 12bits mais significativos(imm[31:20]) da instrução é copiado para os 12 menos sigficativos da instALU[11:0], os demais campos da instALU[31:12] serão preenchidos com a o valor de imm[31]
+
+	imm		  rs1  f3	rd	 opcode
+000000000000 00000 000 00000 0000000
+
+
+ADDI (000000000001 00001 000 00010 0010011) -> 10 8113‬
+SLTI
+SLTIU
+XORI
+ORI
+ANDI
+SLLI
+SRLI
+SRAI
+----------- INSTRUÇÕES TIPO R -------------
+ADD
+		rs2   rs1  func  rd    opcode
+0000000 00001 00010 000 00011 0110011 -> 1101B3‬
+00000000000000000000000000110011 -> 33
+SUB
+0100000 00001 00010 000 00011 0110011?  -> 4011 01B3
+
+XOR
+0000000 00001 00010 100 00011 0110011	-> 11 41B3?
+
+OR
+0000000 00001 00010 110 00011 0110011
+
+0000000 1 00010 110 00011 01100110000 xrs1
+0000000 100010 110 00011 011001 10000 xrs2
+
+SLL
+		rs2	   rs1
+0000000 00010 00001 001 00011 0110011
+00000000001000001001000110110011 -> 20 91B3
+
+SRL
+0000000 00010 00001 101 00011 0110011 -> 20 D1B3
+
+SRA
+0100000 00010 00001 101 00011 0110011 -> 4020 D1B3‬
+10000000001000001001000110110011
+
+SLT
+0000000 00010 00001 010 00011 0110011 -> 0020 A1B3‬
+
+SLTU
+0000000 00010 00001 011 00011 0110011 -> 0020 B1B3
+
+rs2= 1
+rs1= 110
+
+0000000 
+
+20 91B3
+
+ADD -imp
+SUB -imp
+SLL -imp
+SLT -IMP
+SLTU -IMP
+XOR -imp
+SRL -imp
+SRA -imp
+OR -imp
+AND -imp
+
+
+instrucao		: 	IN 		STD_LOGIC_VECTOR(31 DOWNTO 0);
+clock			:	IN		STD_LOGIC;
+w_rd			:	OUT		STD_LOGIC;
+enable_pc		:  	OUT		STD_LOGIC;
+BSel			:	OUT		STD_LOGIC;
+MemRW			: 	OUT		STD_LOGIC;
+WBSel			: 	OUT		STD_LOGIC_VECTOR(1 DOWNTO 0);
+ALUSel			:	OUT		STD_LOGIC_VECTOR(3 DOWNTO 0);
+sel_bhw			: 	OUT		STD_LOGIC_VECTOR(2 DOWNTO 0);
+sel_su			: 	OUT 	STD_LOGIC_VECTOR(1 DOWNTO 0);
+ASel			: 	OUT		STD_LOGIC;
+BrUn			: 	OUT		STD_LOGIC;
+imm_sel			:	OUT 	STD_LOGIC_VECTOR(1 DOWNTO 0);
+PCSel			: 	OUT		STD_LOGIC;
+BrEq			:	IN		STD_LOGIC;
+BrLT			:	IN		STD_LOGIC;
+
+
+
+SIGNAL instrucao 	: STD_LOGIC
+SIGNAL clock 		: STD_LOGIC
+SIGNAL w_rd 		: STD_LOGIC
+SIGNAL enable_pc 	: STD_LOGIC
+SIGNAL BSel 		: STD_LOGIC
+SIGNAL MemRW 		: STD_LOGIC
+SIGNAL WBSel 		: STD_LOGIC
+SIGNAL ALUSel 		: STD_LOGIC
+SIGNAL sel_bhw 		: STD_LOGIC
+SIGNAL sel_su 		: STD_LOGIC
+SIGNAL ASel 		: STD_LOGIC
+SIGNAL BrUn 		: STD_LOGIC
+SIGNAL imm_sel 		: STD_LOGIC
+SIGNAL PCSel 		: STD_LOGIC
+SIGNAL BrEq 		: STD_LOGIC
+SIGNAL BrLT		 	: STD_LOGIC

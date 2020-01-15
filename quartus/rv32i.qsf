@@ -36,25 +36,45 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY "Cyclone IV GX"
-set_global_assignment -name DEVICE auto
-set_global_assignment -name TOP_LEVEL_ENTITY datapath
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C35F672C6
+set_global_assignment -name TOP_LEVEL_ENTITY rv32i
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:48:03  AUGUST 11, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
-set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "D:/Desktop/rv32i/rv32i.vwf"
 set_global_assignment -name SIMULATION_MODE FUNCTIONAL
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name VHDL_FILE pc.vhd
 set_global_assignment -name VHDL_FILE mux.vhd
 set_global_assignment -name VHDL_FILE alu.vhd
 set_global_assignment -name VHDL_FILE rv32i.vhd
 set_global_assignment -name VECTOR_WAVEFORM_FILE rv32i.vwf
 set_global_assignment -name VHDL_FILE datapath.vhd
 set_global_assignment -name VHDL_FILE register_file.vhd
+set_global_assignment -name HEX_FILE rv32i.hex
+set_global_assignment -name MIF_FILE rv32i.mif
+set_global_assignment -name QIP_FILE progam_memory.qip
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name VHDL_FILE geradorImm.vhd
+set_global_assignment -name VHDL_FILE extensor_bhw.vhd
+set_global_assignment -name QIP_FILE data_memory.qip
+set_global_assignment -name VHDL_FILE dmem.vhd
+set_global_assignment -name VHDL_FILE extensor_su.vhd
+set_global_assignment -name VHDL_FILE BranchComp.vhd
+set_global_assignment -name VHDL_FILE somador.vhd
+set_global_assignment -name VHDL_FILE mux_pc_in.vhd
+set_global_assignment -name VHDL_FILE mux4.vhd
+set_global_assignment -name VHDL_FILE progam_memory_0.vhd
+set_global_assignment -name VHDL_FILE controlador.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "D:/Desktop/RISC-V-RV32I/quartus/rv32i.vwf"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
